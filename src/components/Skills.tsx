@@ -1,114 +1,88 @@
-import React, { useState } from 'react';
-import { Search, Sparkles, Zap } from 'lucide-react';
+import React from 'react';
 import { SkillCategory, UIContent } from '../types';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface SkillsProps {
   categories: SkillCategory[];
   ui: UIContent['skills'];
 }
 
+const skillLevels: Record<string, number> = {
+  "ReactJS": 85, "NodeJS": 80, "ExpressJS": 78, "MongoDB": 82,
+  "TypeScript": 80, "Flutter": 90, "Dart": 88, "Tailwind CSS": 85,
+  "WinDev": 95, "WebDev": 90, "C# (Basic)": 40, "Java (Basic)": 40,
+  "C# (Basique)": 40, "Java (Basique)": 40,
+  "SQL Server": 85, "MySQL": 80, "PostgreSQL": 75, "Firebase": 82,
+  "Active Directory": 80, "Citrix": 75, "TeamViewer": 85,
+  "Windows Server": 78, "Office Suite": 90, "Suite Office": 90,
+  "Arabic (Native)": 100, "French (Fluent)": 90, "English (B1 - Good)": 65,
+  "Arabe (Natif)": 100, "Français (Courant)": 90, "Anglais (B1 - Bon)": 65,
+};
+
 const Skills: React.FC<SkillsProps> = ({ categories, ui }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const filteredCategories = categories.map(category => ({
-    ...category,
-    skills: category.skills.filter(skill =>
-      skill.toLowerCase().includes(searchTerm.toLowerCase())
-    ),
-  })).filter(category => category.skills.length > 0);
-
   return (
-    <section id="skills" className="py-24 bg-white dark:bg-slate-950">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-900/20 text-primary-500 text-sm font-semibold mb-6"
-          >
-            <Zap size={16} />
-            <span>Tech Stack</span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white"
-          >
-            {ui.title}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-slate-600 dark:text-slate-400 mb-12"
-          >
-            {ui.subtitle}
-          </motion.p>
+    <section id="skills" className="py-24 bg-gray-50 dark:bg-[#0a0a0f] relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary-500/5 rounded-full blur-[150px] pointer-events-none" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="max-w-md mx-auto relative group"
-          >
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary-500 transition-colors" size={20} />
-            <input
-              type="text"
-              placeholder={ui.searchPlaceholder}
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 border-slate-100 dark:border-slate-800 rounded-2xl focus:outline-none focus:border-primary-500 focus:bg-white dark:focus:bg-slate-950 transition-all duration-300 text-slate-700 dark:text-slate-300 shadow-sm"
-            />
-          </motion.div>
-        </div>
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white">
+            My <span className="text-primary-500">Skills</span>
+          </h2>
+          <p className="text-gray-500 dark:text-gray-400 text-lg">{ui.subtitle}</p>
+        </motion.div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <AnimatePresence mode="popLayout">
-            {filteredCategories.map((category, index) => (
-              <motion.div
-                key={category.name}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3 }}
-                className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/50 hover:border-primary-500/30 transition-all duration-300 group"
-              >
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-1.5 h-8 rounded-full bg-primary-500" />
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary-500 transition-colors">
-                    {category.name}
-                  </h3>
-                </div>
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {categories.map((category, catIndex) => (
+            <motion.div
+              key={category.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: catIndex * 0.1 }}
+              className="p-8 rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06]"
+            >
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-1.5 h-8 rounded-full bg-primary-500" />
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">{category.name}</h3>
+              </div>
 
-                <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, skillIndex) => (
+              <div className="space-y-6">
+                {category.skills.map((skill, skillIndex) => {
+                  const level = skillLevels[skill] || 70;
+                  return (
                     <motion.div
                       key={skill}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium shadow-sm hover:shadow-md hover:border-primary-500/50 hover:text-primary-600 dark:hover:text-primary-400 transition-all cursor-default"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: catIndex * 0.1 + skillIndex * 0.05 }}
                     >
-                      {skill}
+                      <div className="flex justify-between mb-2">
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill}</span>
+                        <span className="text-sm font-bold text-primary-500">{level}%</span>
+                      </div>
+                      <div className="w-full h-2.5 bg-gray-200 dark:bg-white/[0.06] rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${level}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1.2, delay: catIndex * 0.1 + skillIndex * 0.05, ease: "easeOut" }}
+                          className="h-full rounded-full bg-gradient-to-r from-primary-600 to-primary-400"
+                        />
+                      </div>
                     </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+                  );
+                })}
+              </div>
+            </motion.div>
+          ))}
         </div>
-
-        {filteredCategories.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-slate-500 text-lg">No skills found matching "{searchTerm}"</p>
-          </div>
-        )}
       </div>
     </section>
   );

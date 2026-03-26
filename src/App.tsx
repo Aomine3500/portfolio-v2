@@ -30,7 +30,6 @@ const AppContent: React.FC = () => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 400);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -40,7 +39,7 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 font-sans selection:bg-primary-500 selection:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0f] text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
       <Navbar language={language} setLanguage={setLanguage} ui={data.ui} />
       <main>
         <Hero data={data.personalInfo} ui={data.ui.hero} />
@@ -56,7 +55,6 @@ const AppContent: React.FC = () => {
         personalInfo={data.personalInfo}
       />
 
-      {/* Back To Top Button */}
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
@@ -64,7 +62,7 @@ const AppContent: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 bg-slate-900 dark:bg-white text-white dark:text-slate-900 p-3 rounded-full shadow-2xl hover:bg-primary-600 dark:hover:bg-primary-400 transition-colors z-50 group"
+            className="fixed bottom-8 right-8 bg-primary-500 text-white p-3 rounded-full shadow-lg shadow-primary-500/25 hover:bg-primary-600 transition-colors z-50 group"
             aria-label="Back to top"
           >
             <ArrowUp size={24} className="group-hover:-translate-y-1 transition-transform" />

@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react';
-import { Phone, Mail, MapPin, Linkedin, Github, Send, CheckCircle, Facebook, AlertCircle, MessageCircle, Copy } from 'lucide-react';
+import { Phone, Mail, MapPin, Linkedin, Github, Send, CheckCircle, Facebook, AlertCircle, Copy } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { ContactInfo, AppContent, UIContent } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const EMAILJS_CONFIG = {
-  SERVICE_ID: "service_pxxk1ut",   
-  TEMPLATE_ID: "template_65qcolw", 
-  PUBLIC_KEY: "-eaZq4I5RByl6-PLF"    
+  SERVICE_ID: "service_pxxk1ut",
+  TEMPLATE_ID: "template_65qcolw",
+  PUBLIC_KEY: "-eaZq4I5RByl6-PLF"
 };
 
 interface ContactProps {
@@ -31,7 +31,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.current) return;
-    
+
     setFormStatus('submitting');
     setErrorMessage('');
 
@@ -59,32 +59,25 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo }) => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-slate-50 dark:bg-slate-900/50">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-24 bg-gray-50 dark:bg-[#0e0e14] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary-500/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-900/20 text-primary-500 text-sm font-semibold mb-6"
-          >
-            <MessageCircle size={16} />
-            <span>Contact</span>
-          </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white"
+            className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white"
           >
-            {ui.title}
+            Contact <span className="text-primary-500">Me</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto"
+            className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto"
           >
             {ui.subtitle}
           </motion.p>
@@ -96,43 +89,43 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo }) => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <ContactCard 
-                icon={Phone} 
-                title={ui.phoneLabel} 
-                details={contactInfo.phone} 
+              <ContactCard
+                icon={Phone}
+                title={ui.phoneLabel}
+                details={contactInfo.phone}
                 hrefPrefix="tel:"
                 onCopy={copyToClipboard}
                 isCopied={copiedText}
               />
-              <ContactCard 
-                icon={Mail} 
-                title={ui.emailLabel} 
-                details={contactInfo.email} 
+              <ContactCard
+                icon={Mail}
+                title={ui.emailLabel}
+                details={contactInfo.email}
                 hrefPrefix="mailto:"
                 onCopy={copyToClipboard}
                 isCopied={copiedText}
               />
             </div>
-            
-            <div className="p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50 shadow-xl shadow-slate-200/50 dark:shadow-none relative group overflow-hidden">
+
+            <div className="p-8 rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] relative group overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                 <button 
+                 <button
                   onClick={() => copyToClipboard(contactInfo.address)}
-                  className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-primary-500 transition-colors"
+                  className="p-2 rounded-xl bg-gray-100 dark:bg-white/5 text-gray-500 hover:text-primary-500 transition-colors"
                 >
                   <Copy size={16} />
                 </button>
               </div>
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-primary-50 dark:bg-primary-900/20 text-primary-500 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-primary-50 dark:bg-primary-500/10 border border-primary-100 dark:border-primary-500/20 text-primary-500 flex items-center justify-center flex-shrink-0">
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 dark:text-white mb-2">{ui.locationLabel}</h3>
-                  <p className="text-slate-600 dark:text-slate-400">{contactInfo.address}</p>
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-2">{ui.locationLabel}</h3>
+                  <p className="text-gray-500 dark:text-gray-400">{contactInfo.address}</p>
                 </div>
               </div>
               <AnimatePresence>
@@ -141,15 +134,15 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo }) => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="absolute bottom-4 right-8 text-xs font-bold text-emerald-500"
+                    className="absolute bottom-4 right-8 text-xs font-bold text-primary-500"
                   >
                     Copied!
                   </motion.span>
                 )}
               </AnimatePresence>
-              
-              <div className="pt-8 border-t border-slate-100 dark:border-slate-800">
-                <h4 className="font-bold text-slate-900 dark:text-white mb-6">Social Connect</h4>
+
+              <div className="pt-8 border-t border-gray-200 dark:border-white/[0.06]">
+                <h4 className="font-bold text-gray-900 dark:text-white mb-6">Social Connect</h4>
                 <div className="flex gap-4">
                   {socialLinks.map((link) => (
                     link.url && (
@@ -159,7 +152,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ y: -5 }}
-                        className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-all shadow-sm"
+                        className="w-12 h-12 rounded-xl border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:border-primary-500 hover:text-primary-500 hover:bg-primary-500/10 transition-all"
                       >
                         <link.icon size={20} />
                       </motion.a>
@@ -175,45 +168,45 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo }) => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="p-8 md:p-10 rounded-3xl bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50 shadow-2xl shadow-slate-200/50 dark:shadow-none"
+            className="p-8 md:p-10 rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06]"
           >
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">{ui.formTitle}</h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">{ui.formTitle}</h3>
             <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">{ui.nameLabel}</label>
-                  <input 
-                    name="user_name" 
-                    required 
-                    className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-900 border-2 border-slate-50 dark:border-slate-800 rounded-2xl focus:outline-none focus:border-primary-500 focus:bg-white dark:focus:bg-slate-950 transition-all text-slate-900 dark:text-white"
+                  <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">{ui.nameLabel}</label>
+                  <input
+                    name="user_name"
+                    required
+                    className="w-full px-5 py-4 bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl focus:outline-none focus:border-primary-500 transition-all text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600"
                     placeholder="Your Name"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">{ui.emailInputLabel}</label>
-                  <input 
-                    type="email" 
-                    name="user_email" 
-                    required 
-                    className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-900 border-2 border-slate-50 dark:border-slate-800 rounded-2xl focus:outline-none focus:border-primary-500 focus:bg-white dark:focus:bg-slate-950 transition-all text-slate-900 dark:text-white"
+                  <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">{ui.emailInputLabel}</label>
+                  <input
+                    type="email"
+                    name="user_email"
+                    required
+                    className="w-full px-5 py-4 bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl focus:outline-none focus:border-primary-500 transition-all text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600"
                     placeholder="name@example.com"
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">{ui.messageLabel}</label>
-                <textarea 
-                  name="message" 
-                  rows={5} 
-                  required 
-                  className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-900 border-2 border-slate-50 dark:border-slate-800 rounded-2xl focus:outline-none focus:border-primary-500 focus:bg-white dark:focus:bg-slate-950 transition-all text-slate-900 dark:text-white resize-none"
+                <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">{ui.messageLabel}</label>
+                <textarea
+                  name="message"
+                  rows={5}
+                  required
+                  className="w-full px-5 py-4 bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl focus:outline-none focus:border-primary-500 transition-all text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
-              <button 
+              <button
                 type="submit"
                 disabled={formStatus === 'submitting'}
-                className={`w-full py-4 rounded-2xl font-bold text-white shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95
+                className={`w-full py-4 rounded-xl font-bold text-white shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95
                   ${formStatus === 'success' ? 'bg-emerald-500' : formStatus === 'error' ? 'bg-red-500' : 'bg-primary-500 hover:bg-primary-600 shadow-primary-500/25'}
                 `}
               >
@@ -228,9 +221,9 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo }) => {
         </div>
 
         {/* Footer */}
-        <div className="mt-24 pt-12 border-t border-slate-200 dark:border-slate-800 text-center">
-          <p className="text-slate-500 dark:text-slate-500 text-sm">
-            &copy; {new Date().getFullYear()} <span className="text-slate-900 dark:text-white font-bold">{personalInfo.name}</span>. {ui.footer}
+        <div className="mt-24 pt-12 border-t border-gray-200 dark:border-white/[0.06] text-center">
+          <p className="text-gray-500 text-sm">
+            &copy; {new Date().getFullYear()} <span className="text-primary-500 font-bold">{personalInfo.name}</span>. {ui.footer}
           </p>
         </div>
       </div>
@@ -239,20 +232,20 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo }) => {
 };
 
 const ContactCard = ({ icon: Icon, title, details, hrefPrefix, onCopy, isCopied }: any) => (
-  <div className="p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50 shadow-xl shadow-slate-200/50 dark:shadow-none group hover:border-primary-500/30 transition-all relative overflow-hidden">
-    <div className="w-12 h-12 rounded-2xl bg-primary-50 dark:bg-primary-900/20 text-primary-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+  <div className="p-8 rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] group hover:border-primary-500/30 transition-all relative overflow-hidden">
+    <div className="w-12 h-12 rounded-xl bg-primary-50 dark:bg-primary-500/10 border border-primary-100 dark:border-primary-500/20 text-primary-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
       <Icon size={24} />
     </div>
-    <h3 className="font-bold text-slate-900 dark:text-white mb-4">{title}</h3>
+    <h3 className="font-bold text-gray-900 dark:text-white mb-4">{title}</h3>
     <div className="space-y-2">
       {details.map((detail: string, idx: number) => (
         <div key={idx} className="flex items-center justify-between group/item">
-          <a href={`${hrefPrefix}${detail}`} className="block text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-colors text-sm break-all">
+          <a href={`${hrefPrefix}${detail}`} className="block text-gray-500 dark:text-gray-400 hover:text-primary-500 transition-colors text-sm break-all">
             {detail}
           </a>
-          <button 
+          <button
             onClick={() => onCopy(detail)}
-            className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-primary-500 opacity-0 group-hover/item:opacity-100 transition-all"
+            className="p-1.5 rounded-lg bg-gray-100 dark:bg-white/5 text-gray-400 hover:text-primary-500 opacity-0 group-hover/item:opacity-100 transition-all"
             title="Copy"
           >
             <Copy size={14} />
@@ -266,7 +259,7 @@ const ContactCard = ({ icon: Icon, title, details, hrefPrefix, onCopy, isCopied 
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          className="absolute top-4 right-4 text-[10px] font-bold text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded-full"
+          className="absolute top-4 right-4 text-[10px] font-bold text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-2 py-1 rounded-full"
         >
           Copied!
         </motion.span>
