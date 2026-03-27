@@ -125,7 +125,7 @@ const About: React.FC<AboutProps> = ({ data, ui }) => {
         >
           {[
             { value: '8+', label: 'Years Experience' },
-            { value: '50+', label: 'Projects Completed' },
+            { value: '20+', label: 'Projects Completed' },
             { value: '10+', label: 'Technologies' },
             { value: '100%', label: 'Dedication' },
           ].map((stat, index) => (
