@@ -1,7 +1,7 @@
 import { AppContent } from '../types';
 
 const PROFILE_IMAGE_URL = "https://i.imgur.com/OzNgKWc.jpeg"; 
-const GAZTRACK_IMAGE_URL = "https://i.imgur.com/GSs9ZZN.jpeg";
+const GAZTRACK_IMAGE_URL = "/gaztrack/gaztrack-pro-card.jpg";
 
 const contactInfoBase = {
   phone: ["+216 92 258 245", "+216 55 318 929"],
@@ -246,6 +246,22 @@ export const content: { en: AppContent; fr: AppContent } = {
         sendingBtn: "Sending...",
         sentBtn: "Message Sent!",
         footer: "All rights reserved."
+      },
+      gaztrackPro: {
+        backBtn: "Back to Portfolio",
+        description: [
+          "Gaztrack Pro is a comprehensive platform designed to streamline the distribution and management of domestic gas bottles.",
+          "It features a mobile application that helps gas truck drivers accurately record their sales on the go, and a powerful web administration dashboard to track driver activities, monitor inventory, and manage overall sales operations."
+        ],
+        webDashboard: "Web Dashboard",
+        mobileApp: "Mobile App",
+        featuresTitle: "Key Features",
+        features: [
+          "Real-time sales tracking for drivers",
+          "Comprehensive web dashboard for administrators",
+          "Inventory and delivery management",
+          "Detailed reporting and analytics"
+        ]
       }
     }
   },
@@ -481,6 +497,22 @@ export const content: { en: AppContent; fr: AppContent } = {
         sendingBtn: "Envoi...",
         sentBtn: "Envoyé !",
         footer: "Tous droits réservés."
+      },
+      gaztrackPro: {
+        backBtn: "Retour au Portfolio",
+        description: [
+          "Gaztrack Pro est une plateforme complète conçue pour rationaliser la distribution et la gestion des bouteilles de gaz domestiques.",
+          "Elle intègre une application mobile qui aide les chauffeurs de camions de gaz à enregistrer précisément leurs ventes en déplacement, ainsi qu'un puissant tableau de bord d'administration web pour suivre les activités des chauffeurs, contrôler les stocks et gérer l'ensemble des opérations de vente."
+        ],
+        webDashboard: "Tableau de Bord Web",
+        mobileApp: "Application Mobile",
+        featuresTitle: "Fonctionnalités Clés",
+        features: [
+          "Suivi des ventes en temps réel pour les chauffeurs",
+          "Tableau de bord web complet pour les administrateurs",
+          "Gestion des stocks et des livraisons",
+          "Rapports détaillés et analyses"
+        ]
       }
     }
   }

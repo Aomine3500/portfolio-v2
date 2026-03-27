@@ -104,6 +104,14 @@ export interface UIContent {
     sentBtn: string;
     footer: string;
   };
+  gaztrackPro: {
+    backBtn: string;
+    description: string[];
+    webDashboard: string;
+    mobileApp: string;
+    featuresTitle: string;
+    features: string[];
+  };
 }
 
 export interface AppContent {

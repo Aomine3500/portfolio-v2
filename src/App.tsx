@@ -46,7 +46,7 @@ const AppContent: React.FC = () => {
         <About data={data.personalInfo} ui={data.ui.about} />
         <Experience experiences={data.experiences} ui={data.ui.experience} />
         <Skills categories={data.skillCategories} ui={data.ui.skills} />
-        <Projects projects={data.projects} ui={data.ui.projects} />
+        <Projects projects={data.projects} ui={data.ui.projects} language={language} />
         <Education education={data.education} ui={data.ui.education} />
       </main>
       <Contact

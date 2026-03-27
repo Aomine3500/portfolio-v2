@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { ExternalLink, Github, Layout, Smartphone, Laptop, Globe } from 'lucide-react';
 import { Project, UIContent } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Language } from '../App';
+import GaztrackProDetails from './GaztrackProDetails';
 
 interface ProjectsProps {
   projects: Project[];
   ui: UIContent['projects'];
+  language: Language;
 }
 
-const Projects: React.FC<ProjectsProps> = ({ projects, ui }) => {
+const Projects: React.FC<ProjectsProps> = ({ projects, ui, language }) => {
   const [filter, setFilter] = useState<string>('all');
+  const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
   const filteredProjects = filter === 'all'
     ? projects
@@ -79,7 +83,12 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="group rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] overflow-hidden hover:border-primary-500/30 transition-all duration-500 flex flex-col h-full"
+                className={`group rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] overflow-hidden hover:border-primary-500/30 transition-all duration-500 flex flex-col h-full ${project.title === 'Gaztrack Pro' ? 'cursor-pointer' : ''}`}
+                onClick={() => {
+                  if (project.title === 'Gaztrack Pro') {
+                    setSelectedProject('Gaztrack Pro');
+                  }
+                }}
               >
                 {/* Image */}
                 <div className="relative h-60 overflow-hidden">
@@ -98,13 +107,13 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui }) => {
                   <div className="absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="flex gap-3 w-full">
                       {project.demoUrl && (
-                        <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 bg-primary-500 text-white py-2.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary-600 transition-colors">
+                        <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 bg-primary-500 text-white py-2.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary-600 transition-colors" onClick={(e) => e.stopPropagation()}>
                           <ExternalLink size={16} />
                           {ui.demoBtn}
                         </a>
                       )}
                       {project.sourceUrl && (
-                        <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex-1 bg-white/10 backdrop-blur-md text-white py-2.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/20 transition-colors border border-white/20">
+                        <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex-1 bg-white/10 backdrop-blur-md text-white py-2.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/20 transition-colors border border-white/20" onClick={(e) => e.stopPropagation()}>
                           <Github size={16} />
                           {ui.sourceBtn}
                         </a>
@@ -139,6 +148,12 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui }) => {
           </AnimatePresence>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {selectedProject === 'Gaztrack Pro' && (
+          <GaztrackProDetails language={language} onClose={() => setSelectedProject(null)} />
+        )}
+      </AnimatePresence>
     </section>
   );
 };
