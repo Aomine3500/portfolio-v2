@@ -17,8 +17,8 @@ export const content: { en: AppContent; fr: AppContent } = {
   en: {
     personalInfo: {
       name: "Ahmed Znouda",
-      title: "Software Developer",
-      about: "I have more than 8 years of experience in the IT field, varying between technical assistance and full-stack development. My journey spans from legacy desktop applications (WinDev) to modern web (MERN Stack) and mobile solutions (Flutter). I am passionate about building robust cross-platform applications and solving complex technical challenges.",
+      title: "AI Automation & Full-Stack Developer",
+      about: "With 8+ years of IT experience, I specialize in building scalable software and intelligent automation systems. My expertise spans full-stack development (Flutter, MERN) and AI-driven automation using n8n and LLMs — enabling businesses to replace manual processes with smart, data-driven workflows. I don't just build apps; I architect systems that think.",
       heroImage: PROFILE_IMAGE_URL,
     },
     contactInfo: {
@@ -144,6 +144,10 @@ export const content: { en: AppContent; fr: AppContent } = {
     ],
     skillCategories: [
       {
+        name: "AI & Automation",
+        skills: ["n8n", "Python for AI", "LLM Orchestration", "Automated Triage Systems", "Prompt Engineering"]
+      },
+      {
         name: "Development Stack",
         skills: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "TypeScript", "Flutter", "Dart", "Tailwind CSS"]
       },
@@ -168,7 +172,7 @@ export const content: { en: AppContent; fr: AppContent } = {
       {
         id: 1,
         title: "Gaztrack Pro",
-        description: "A modern cross-platform application (Web & Mobile) designed to streamline the distribution and management of gas bottles. Features include inventory tracking, delivery management, and reporting.",
+        description: "A logistics transformation platform that digitizes gas distribution operations, eliminating manual errors and optimizing supply chains. Replaces paper-based tracking with real-time digital workflows — from driver mobile sales capture to executive-level inventory dashboards.",
         techStack: ["Flutter", "Dart", "Firebase", "Google Maps API"],
         type: "Mobile & Web",
         types: ["Mobile", "Web"],
@@ -185,8 +189,8 @@ export const content: { en: AppContent; fr: AppContent } = {
       {
         id: 3,
         title: "Mind Suite",
-        description: "A voice-powered mental wellness app using AI to guide users through clinically validated psychological self-assessments (PHQ-9, GAD-7, Burnout, Loneliness). Coming soon on Android & iOS.",
-        techStack: ["Flutter", "Dart", "Firebase", "AI Voice"],
+        description: "An AI-driven mental health screening tool leveraging PHQ-9 and GAD-7 clinical protocols to deliver automated initial triage and intelligent medical guidance. An AI voice assistant conducts structured assessments, interprets results, and routes users to appropriate care pathways.",
+        techStack: ["Flutter", "Dart", "Firebase", "AI Voice", "LLM Orchestration"],
         type: "Mobile",
         types: ["Mobile"],
         image: "/mindsuite/logo.png",
@@ -203,10 +207,11 @@ export const content: { en: AppContent; fr: AppContent } = {
         { name: 'Contact', href: '#contact', id: 'contact' },
       ],
       hero: {
-        contactBtn: "Contact Me",
+        headline: "Scalable Software & Intelligent Automation for the Modern Enterprise.",
+        contactBtn: "Book Your Free Solution Audit",
         downloadBtn: "Download CV",
         scroll: "Scroll",
-        roles: ["Flutter Developer", "MERN Stack Expert", "Software Engineer"]
+        roles: ["AI Automation Expert", "Flutter Developer", "MERN Stack Expert", "Software Engineer"]
       },
       about: {
         title: "About Me",
@@ -214,6 +219,7 @@ export const content: { en: AppContent; fr: AppContent } = {
           frontend: { title: "Frontend", desc: "ReactJS, Flutter, TypeScript" },
           backend: { title: "Backend", desc: "NodeJS, MongoDB, SQL" },
           legacy: { title: "Legacy", desc: "WinDev, Desktop Apps" },
+          ai: { title: "AI & Automation", desc: "n8n, LLMs, Intelligent Workflows" },
         }
       },
       experience: {
@@ -245,7 +251,7 @@ export const content: { en: AppContent; fr: AppContent } = {
       },
       contact: {
         title: "Let's Work Together",
-        subtitle: "I am currently available for freelance projects or full-time opportunities. Whether you have a question about Flutter, MERN stack, or just want to say hi, I'll try my best to get back to you!",
+        subtitle: "Ready to transform your business with scalable software and intelligent automation? Book a free 30-minute Solution Audit — we'll identify high-impact automation opportunities and map out a roadmap for your enterprise.",
         phoneLabel: "Phone",
         emailLabel: "Email",
         locationLabel: "Location",
@@ -261,54 +267,54 @@ export const content: { en: AppContent; fr: AppContent } = {
       gaztrackPro: {
         backBtn: "Back to Portfolio",
         description: [
-          "Gaztrack Pro is a comprehensive platform designed to streamline the distribution and management of domestic gas bottles.",
-          "It features a mobile application that helps gas truck drivers accurately record their sales on the go, and a powerful web administration dashboard to track driver activities, monitor inventory, and manage overall sales operations.",
-          "This project was developed within **GDH Management and Consulting** company, where I served as the lead developer."
+          "Gaztrack Pro is a logistics transformation platform that digitizes end-to-end gas distribution operations, eliminating the manual errors and opacity endemic to paper-based supply chains.",
+          "The platform couples a mobile app for field drivers — enabling precise, real-time sales capture on the go — with a powerful web administration dashboard that gives operations managers full visibility over driver activities, inventory levels, and delivery performance.",
+          "Built for **GDH Management and Consulting**, where I served as lead developer, Gaztrack Pro replaces fragmented manual workflows with a unified digital supply chain, reducing errors and delivering actionable business intelligence at every level of the organization."
         ],
         webDashboard: "Web Dashboard",
         mobileApp: "Mobile App",
         featuresTitle: "Key Features",
         features: [
-          "Real-time sales tracking for drivers",
-          "Comprehensive web dashboard for administrators",
-          "Inventory and delivery management",
-          "Detailed reporting and analytics"
+          "Real-time sales & delivery tracking for field drivers",
+          "Supply chain digitization — eliminates paper-based errors",
+          "Executive dashboard with inventory & performance analytics",
+          "Automated stock reconciliation and alert system"
         ],
         demoBtnLabel: "Request a Demo",
         demoMessage: "I would like to request a demo of the \"Gaztrack Pro\" application."
       },
       mindSuite: {
         backBtn: "Back to Portfolio",
-        tagline: "Where clinical science meets the warmth of conversation.",
+        tagline: "AI-Driven Mental Health Triage — Where Clinical Science Meets Intelligent Automation.",
         description: [
-          "Mind Suite is a voice-powered mental wellness application that guides users through structured psychological self-assessments using an intelligent AI voice assistant.",
-          "Instead of cold checkbox forms, users engage in a natural spoken dialogue — the AI listens, asks questions gently, and adapts the conversation to the selected assessment. The result is a more human, comfortable experience without compromising on scientific rigor."
+          "Mind Suite is an AI-driven mental health screening tool that leverages PHQ-9 and GAD-7 clinical protocols to deliver automated initial triage and intelligent medical guidance — bringing enterprise-grade decision automation to mental healthcare.",
+          "Instead of cold checkbox forms, users engage in a natural spoken dialogue with an LLM-orchestrated AI voice assistant. The system conducts structured assessments, interprets results against validated clinical thresholds, and automatically routes users to appropriate care pathways — all without human intervention in the triage loop."
         ],
         comingSoon: "Coming Soon",
         inDevelopment: "In Development",
         highlightsTitle: "Why Mind Suite?",
         highlights: {
-          voice: "Voice-first experience — speak naturally, the AI listens and adapts, no forms to fill.",
-          ai: "AI-powered conversational engine guided by internationally recognized clinical scales.",
-          privacy: "Your conversations and results are fully confidential and never shared with third parties.",
-          crossPlatform: "Cross-platform (Android, iOS, Web) — coming soon on Android & iOS stores."
+          voice: "Voice-first interface — speak naturally, the AI listens, adapts, and scores in real time.",
+          ai: "LLM-orchestrated triage engine guided by PHQ-9, GAD-7, and other internationally validated clinical scales.",
+          privacy: "All assessments are processed locally and confidentially — results never shared with third parties.",
+          crossPlatform: "Cross-platform (Android, iOS, Web) — automated care pathway routing from day one."
         },
         assessmentsTitle: "Clinically Validated Assessments",
         assessments: {
-          phq9: { domain: "Depression", desc: "Patient Health Questionnaire — the gold standard for measuring depressive symptom severity." },
-          gad7: { domain: "Anxiety", desc: "Generalized Anxiety Disorder scale — widely adopted across clinical and research settings." },
-          loneliness: { scale: "UCLA", domain: "Loneliness", desc: "Evaluates perceived social connectedness and feelings of isolation in daily life." },
-          burnout: { scale: "MBI", domain: "Burnout", desc: "Measures emotional, physical, and cognitive depletion related to occupational stress." }
+          phq9: { domain: "Depression", desc: "Patient Health Questionnaire — the gold standard for automated depressive symptom scoring and initial triage." },
+          gad7: { domain: "Anxiety", desc: "Generalized Anxiety Disorder scale — automated severity classification widely adopted across clinical settings." },
+          loneliness: { scale: "UCLA", domain: "Loneliness", desc: "Evaluates perceived social connectedness and triggers automated support pathway recommendations." },
+          burnout: { scale: "MBI", domain: "Burnout", desc: "Measures emotional and cognitive depletion — powers automated occupational health alerts." }
         },
-        howItWorksTitle: "How It Works",
+        howItWorksTitle: "Automated Triage Flow",
         steps: [
-          "Choose an assessment to explore",
-          "The AI opens the session calmly",
-          "Speak naturally — AI adapts to you",
-          "Receive a clear interpreted summary"
+          "User selects an assessment protocol (PHQ-9, GAD-7, etc.)",
+          "AI voice assistant opens the session and conducts the interview",
+          "LLM scores responses against clinical thresholds in real time",
+          "System delivers an interpreted summary and routes to appropriate care"
         ],
         disclaimerTitle: "An Important Note",
-        disclaimer: "Mind Suite is a self-awareness and screening tool, not a clinical diagnostic service. If your results suggest elevated concern, we warmly encourage you to seek support from a qualified mental health professional.",
+        disclaimer: "Mind Suite is an automated screening and triage tool, not a clinical diagnostic service. When elevated risk is detected, the system automatically recommends consulting a qualified mental health professional.",
         demoBtnLabel: "Request a Demo",
         demoUnavailableHint: "Feature coming soon"
       }
@@ -317,8 +323,8 @@ export const content: { en: AppContent; fr: AppContent } = {
   fr: {
     personalInfo: {
       name: "Ahmed Znouda",
-      title: "Développeur Logiciel",
-      about: "J'ai plus de 8 ans d'expérience dans le domaine de l'informatique, variant entre l'assistance technique et le développement d'applications Web et Desktop. Mon parcours s'étend des applications desktop héritées (WinDev) aux solutions modernes web (MERN Stack) et mobiles (Flutter). Je suis passionné par la création d'applications multiplateformes robustes et la résolution de défis techniques complexes.",
+      title: "Développeur IA & Full-Stack",
+      about: "Avec 8+ ans d'expérience IT, je me spécialise dans la création de logiciels scalables et de systèmes d'automatisation intelligents. Mon expertise couvre le développement full-stack (Flutter, MERN) et l'automatisation pilotée par l'IA via n8n et les LLMs — permettant aux entreprises de remplacer les processus manuels par des workflows intelligents orientés données. Je ne construis pas seulement des applications ; j'architectorise des systèmes qui pensent.",
       heroImage: PROFILE_IMAGE_URL,
     },
     contactInfo: {
@@ -444,6 +450,10 @@ export const content: { en: AppContent; fr: AppContent } = {
     ],
     skillCategories: [
       {
+        name: "IA & Automatisation",
+        skills: ["n8n", "Python pour l'IA", "Orchestration LLM", "Systèmes de Triage Automatisé", "Prompt Engineering"]
+      },
+      {
         name: "Stack de Développement",
         skills: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "TypeScript", "Flutter", "Dart", "Tailwind CSS"]
       },
@@ -468,7 +478,7 @@ export const content: { en: AppContent; fr: AppContent } = {
       {
         id: 1,
         title: "Gaztrack Pro",
-        description: "Une application multiplateforme moderne (Web & Mobile) conçue pour rationaliser la distribution et la gestion des bouteilles de gaz. Fonctionnalités incluant le suivi des stocks, la gestion des livraisons et le reporting.",
+        description: "Une plateforme de transformation logistique qui digitalise les opérations de distribution de gaz, éliminant les erreurs manuelles et optimisant les chaînes d'approvisionnement. Remplace le suivi papier par des workflows numériques en temps réel — de la capture mobile des ventes chauffeurs aux tableaux de bord exécutifs.",
         techStack: ["Flutter", "Dart", "Firebase", "API Google Maps"],
         type: "Mobile & Web",
         types: ["Mobile", "Web"],
@@ -485,8 +495,8 @@ export const content: { en: AppContent; fr: AppContent } = {
       {
         id: 3,
         title: "Mind Suite",
-        description: "Une application mobile de bien-être mental utilisant l'IA vocale pour guider les utilisateurs à travers des auto-évaluations psychologiques validées cliniquement (PHQ-9, GAD-7, Burnout, Solitude). Bientôt disponible sur Android & iOS.",
-        techStack: ["Flutter", "Dart", "Firebase", "IA Vocale"],
+        description: "Un outil de dépistage en santé mentale piloté par l'IA, utilisant les protocoles cliniques PHQ-9 et GAD-7 pour fournir un triage initial automatisé et une orientation médicale intelligente. Un assistant vocal IA conduit les évaluations structurées et oriente les utilisateurs vers les parcours de soins appropriés.",
+        techStack: ["Flutter", "Dart", "Firebase", "IA Vocale", "Orchestration LLM"],
         type: "Mobile",
         types: ["Mobile"],
         image: "/mindsuite/logo.png",
@@ -503,10 +513,11 @@ export const content: { en: AppContent; fr: AppContent } = {
         { name: 'Contact', href: '#contact', id: 'contact' },
       ],
       hero: {
-        contactBtn: "Me Contacter",
+        headline: "Logiciels Scalables & Automatisation Intelligente pour l'Entreprise Moderne.",
+        contactBtn: "Réserver Votre Audit Solution Gratuit",
         downloadBtn: "Télécharger CV",
         scroll: "Défiler",
-        roles: ["Développeur Flutter", "Expert MERN Stack", "Ingénieur Logiciel"]
+        roles: ["Expert en Automatisation IA", "Développeur Flutter", "Expert MERN Stack", "Ingénieur Logiciel"]
       },
       about: {
         title: "À propos de moi",
@@ -514,6 +525,7 @@ export const content: { en: AppContent; fr: AppContent } = {
           frontend: { title: "Frontend", desc: "ReactJS, Flutter, TypeScript" },
           backend: { title: "Backend", desc: "NodeJS, MongoDB, SQL" },
           legacy: { title: "Legacy", desc: "WinDev, App Desktop" },
+          ai: { title: "IA & Automatisation", desc: "n8n, LLMs, Workflows Intelligents" },
         }
       },
       experience: {
@@ -545,7 +557,7 @@ export const content: { en: AppContent; fr: AppContent } = {
       },
       contact: {
         title: "Travaillons Ensemble",
-        subtitle: "Je suis actuellement disponible pour des projets freelance ou des opportunités à temps plein. Que vous ayez une question sur Flutter, la stack MERN, ou simplement pour dire bonjour, je ferai de mon mieux pour vous répondre !",
+        subtitle: "Prêt à transformer votre entreprise avec des logiciels scalables et une automatisation intelligente ? Réservez un Audit Solution gratuit de 30 minutes — nous identifierons ensemble les opportunités d'automatisation à fort impact et établirons une feuille de route pour votre entreprise.",
         phoneLabel: "Téléphone",
         emailLabel: "Email",
         locationLabel: "Localisation",
@@ -561,54 +573,54 @@ export const content: { en: AppContent; fr: AppContent } = {
       gaztrackPro: {
         backBtn: "Retour au Portfolio",
         description: [
-          "Gaztrack Pro est une plateforme complète conçue pour rationaliser la distribution et la gestion des bouteilles de gaz domestiques.",
-          "Elle intègre une application mobile qui aide les chauffeurs de camions de gaz à enregistrer précisément leurs ventes en déplacement, ainsi qu'un puissant tableau de bord d'administration web pour suivre les activités des chauffeurs, contrôler les stocks et gérer l'ensemble des opérations de vente.",
-          "Ce projet a été développé au sein de la société **GDH Management and Consulting**, dont j'étais le développeur principal."
+          "Gaztrack Pro est une plateforme de transformation logistique qui digitalise les opérations de distribution de gaz de bout en bout, éliminant les erreurs manuelles et l'opacité inhérentes aux chaînes d'approvisionnement basées sur le papier.",
+          "La plateforme couple une application mobile pour les chauffeurs terrain — permettant une capture précise des ventes en temps réel — avec un puissant tableau de bord d'administration web offrant aux managers une visibilité totale sur les activités, les stocks et les performances.",
+          "Développé pour **GDH Management and Consulting**, dont j'étais le développeur principal, Gaztrack Pro remplace les workflows manuels fragmentés par une chaîne d'approvisionnement numérique unifiée, réduisant les erreurs et livrant une intelligence opérationnelle à chaque niveau de l'organisation."
         ],
         webDashboard: "Tableau de Bord Web",
         mobileApp: "Application Mobile",
         featuresTitle: "Fonctionnalités Clés",
         features: [
-          "Suivi des ventes en temps réel pour les chauffeurs",
-          "Tableau de bord web complet pour les administrateurs",
-          "Gestion des stocks et des livraisons",
-          "Rapports détaillés et analyses"
+          "Suivi des ventes & livraisons en temps réel pour les chauffeurs terrain",
+          "Digitalisation de la chaîne logistique — élimination des erreurs papier",
+          "Tableau de bord exécutif avec analytics stocks & performances",
+          "Réconciliation automatique des stocks et système d'alertes"
         ],
         demoBtnLabel: "Demander une Démo",
         demoMessage: "Je souhaite demander une démo de l'application \"Gaztrack Pro\"."
       },
       mindSuite: {
         backBtn: "Retour au Portfolio",
-        tagline: "Là où la science clinique rencontre la chaleur de la conversation.",
+        tagline: "Triage en Santé Mentale Piloté par l'IA — La Science Clinique Rencontre l'Automatisation Intelligente.",
         description: [
-          "Mind Suite est une application de bien-être mental par voix qui guide les utilisateurs à travers des auto-évaluations psychologiques structurées, menées par un assistant IA vocal intelligent.",
-          "Au lieu de formulaires impersonnels, l'utilisateur engage un dialogue parlé naturel avec l'IA qui écoute, pose des questions doucement et adapte la conversation à l'évaluation choisie. Le résultat est une expérience plus humaine et confortable, sans compromettre la rigueur scientifique."
+          "Mind Suite est un outil de dépistage en santé mentale piloté par l'IA qui s'appuie sur les protocoles cliniques PHQ-9 et GAD-7 pour fournir un triage initial automatisé et une orientation médicale intelligente — apportant l'automatisation de décision enterprise au domaine de la santé mentale.",
+          "Au lieu de formulaires impersonnels, l'utilisateur engage un dialogue naturel avec un assistant vocal IA orchestré par LLM. Le système conduit des évaluations structurées, interprète les résultats par rapport aux seuils cliniques validés, et oriente automatiquement les utilisateurs vers les parcours de soins appropriés — sans intervention humaine dans la boucle de triage."
         ],
         comingSoon: "Bientôt disponible",
         inDevelopment: "En développement",
         highlightsTitle: "Pourquoi Mind Suite ?",
         highlights: {
-          voice: "Experience vocale — parlez naturellement, l'IA écoute et s'adapte, pas de formulaires.",
-          ai: "Moteur conversationnel IA guidé par des échelles cliniques internationalement reconnues.",
-          privacy: "Vos conversations et résultats sont entièrement confidentiels et jamais partagés.",
-          crossPlatform: "Multiplateforme (Android, iOS, Web) — bientôt sur les stores Android & iOS."
+          voice: "Interface vocale — parlez naturellement, l'IA écoute, s'adapte et score en temps réel.",
+          ai: "Moteur de triage orchestré par LLM, guidé par PHQ-9, GAD-7 et d'autres échelles cliniques validées.",
+          privacy: "Toutes les évaluations sont traitées localement et confidentiellement — résultats jamais partagés.",
+          crossPlatform: "Multiplateforme (Android, iOS, Web) — orientation automatique vers les parcours de soins dès le départ."
         },
         assessmentsTitle: "Évaluations Validées Cliniquement",
         assessments: {
-          phq9: { domain: "Dépression", desc: "Patient Health Questionnaire — la référence pour mesurer la sévérité des symptômes dépressifs." },
-          gad7: { domain: "Anxieté", desc: "Échelle des troubles anxieux généralisés — largement utilisée en milieu clinique et de recherche." },
-          loneliness: { scale: "UCLA", domain: "Solitude", desc: "Evalue le sentiment de connexion sociale et d'isolement perçu dans la vie quotidienne." },
-          burnout: { scale: "MBI", domain: "Burnout", desc: "Mesure l'épuisement émotionnel, physique et cognitif lié au stress professionnel." }
+          phq9: { domain: "Dépression", desc: "Patient Health Questionnaire — la référence pour le scoring automatisé des symptômes dépressifs et le triage initial." },
+          gad7: { domain: "Anxiété", desc: "Échelle des troubles anxieux généralisés — classification automatisée de la sévérité adoptée en milieu clinique." },
+          loneliness: { scale: "UCLA", domain: "Solitude", desc: "Évalue le sentiment de connexion sociale et déclenche des recommandations automatisées de parcours de soutien." },
+          burnout: { scale: "MBI", domain: "Burnout", desc: "Mesure l'épuisement émotionnel et cognitif — alimente des alertes automatisées de santé au travail." }
         },
-        howItWorksTitle: "Comment ça marche",
+        howItWorksTitle: "Flux de Triage Automatisé",
         steps: [
-          "Choisissez une évaluation à explorer",
-          "L'IA ouvre la session calmement",
-          "Parlez naturellement — l'IA s'adapte",
-          "Recevez un résumé clair et interprété"
+          "L'utilisateur sélectionne un protocole d'évaluation (PHQ-9, GAD-7, etc.)",
+          "L'assistant vocal IA ouvre la session et conduit l'entretien",
+          "Le LLM score les réponses par rapport aux seuils cliniques en temps réel",
+          "Le système délivre un résumé interprété et oriente vers les soins appropriés"
         ],
         disclaimerTitle: "Note Importante",
-        disclaimer: "Mind Suite est un outil de sensibilisation et de dépistage, pas un service de diagnostic clinique. Si vos résultats indiquent une préoccupation élevée, nous vous encourageons vivement à consulter un professionnel de santé mentale qualifié.",
+        disclaimer: "Mind Suite est un outil de dépistage et de triage automatisé, pas un service de diagnostic clinique. Lorsqu'un risque élevé est détecté, le système recommande automatiquement de consulter un professionnel de santé mentale qualifié.",
         demoBtnLabel: "Demander une Démo",
         demoUnavailableHint: "Fonctionnalité bientôt disponible"
       }

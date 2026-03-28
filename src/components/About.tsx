@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Server, Laptop } from 'lucide-react';
+import { Code, Server, Laptop, Bot } from 'lucide-react';
 import { AppContent, UIContent } from '../types';
 import { motion } from 'framer-motion';
 
@@ -10,6 +10,7 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ data, ui }) => {
   const cards = [
+    { icon: Bot, title: ui.cards.ai.title, description: ui.cards.ai.desc },
     { icon: Code, title: ui.cards.frontend.title, description: ui.cards.frontend.desc },
     { icon: Server, title: ui.cards.backend.title, description: ui.cards.backend.desc },
     { icon: Laptop, title: ui.cards.legacy.title, description: ui.cards.legacy.desc },
@@ -95,7 +96,7 @@ const About: React.FC<AboutProps> = ({ data, ui }) => {
         </div>
 
         {/* Specialty Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {cards.map((card, index) => (
             <motion.div
               key={index}

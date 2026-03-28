@@ -63,16 +63,16 @@ const Hero: React.FC<HeroProps> = ({ data, ui }) => {
               transition={{ delay: 0.2 }}
               className="text-primary-500 font-semibold text-lg mb-4 tracking-wide uppercase"
             >
-              Hello!
+              Hello, I'm <span className="text-primary-400">{data.name}</span>
             </motion.p>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight text-gray-900 dark:text-white"
+              className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-gray-900 dark:text-white"
             >
-              I'm <span className="text-primary-500">{data.name}</span>
+              {ui.headline}
             </motion.h1>
 
             <motion.div

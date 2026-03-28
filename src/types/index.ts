@@ -50,6 +50,7 @@ export interface ContactInfo {
 export interface UIContent {
   nav: { name: string; href: string; id: string }[];
   hero: {
+    headline: string;
     contactBtn: string;
     downloadBtn: string;
     scroll: string;
@@ -61,6 +62,7 @@ export interface UIContent {
       frontend: { title: string; desc: string };
       backend: { title: string; desc: string };
       legacy: { title: string; desc: string };
+      ai: { title: string; desc: string };
     }
   };
   experience: {

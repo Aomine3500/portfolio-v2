@@ -8,6 +8,8 @@ interface SkillsProps {
 }
 
 const skillLevels: Record<string, number> = {
+  "n8n": 85, "Python for AI": 75, "LLM Orchestration": 80, "Automated Triage Systems": 82, "Prompt Engineering": 88,
+  "Python pour l'IA": 75, "Orchestration LLM": 80, "Systèmes de Triage Automatisé": 82,
   "ReactJS": 85, "NodeJS": 80, "ExpressJS": 78, "MongoDB": 82,
   "TypeScript": 80, "Flutter": 90, "Dart": 88, "Tailwind CSS": 85,
   "WinDev": 95, "WebDev": 90, "C# (Basic)": 40, "Java (Basic)": 40,
