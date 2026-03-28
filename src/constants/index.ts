@@ -269,7 +269,7 @@ export const content: { en: AppContent; fr: AppContent } = {
         description: [
           "Gaztrack Pro is a logistics transformation platform that digitizes end-to-end gas distribution operations, eliminating the manual errors and opacity endemic to paper-based supply chains.",
           "The platform couples a mobile app for field drivers — enabling precise, real-time sales capture on the go — with a powerful web administration dashboard that gives operations managers full visibility over driver activities, inventory levels, and delivery performance.",
-          "Built for **GDH Management and Consulting**, where I served as lead developer, Gaztrack Pro replaces fragmented manual workflows with a unified digital supply chain, reducing errors and delivering actionable business intelligence at every level of the organization."
+          "Built by **GDH Management and Consulting**, where I served as lead developer, Gaztrack Pro replaces fragmented manual workflows with a unified digital supply chain, reducing errors and delivering actionable business intelligence at every level of the organization."
         ],
         webDashboard: "Web Dashboard",
         mobileApp: "Mobile App",
@@ -575,7 +575,7 @@ export const content: { en: AppContent; fr: AppContent } = {
         description: [
           "Gaztrack Pro est une plateforme de transformation logistique qui digitalise les opérations de distribution de gaz de bout en bout, éliminant les erreurs manuelles et l'opacité inhérentes aux chaînes d'approvisionnement basées sur le papier.",
           "La plateforme couple une application mobile pour les chauffeurs terrain — permettant une capture précise des ventes en temps réel — avec un puissant tableau de bord d'administration web offrant aux managers une visibilité totale sur les activités, les stocks et les performances.",
-          "Développé pour **GDH Management and Consulting**, dont j'étais le développeur principal, Gaztrack Pro remplace les workflows manuels fragmentés par une chaîne d'approvisionnement numérique unifiée, réduisant les erreurs et livrant une intelligence opérationnelle à chaque niveau de l'organisation."
+          "Développé par **GDH Management and Consulting**, dont j'étais le développeur principal, Gaztrack Pro remplace les workflows manuels fragmentés par une chaîne d'approvisionnement numérique unifiée, réduisant les erreurs et livrant une intelligence opérationnelle à chaque niveau de l'organisation."
         ],
         webDashboard: "Tableau de Bord Web",
         mobileApp: "Application Mobile",
