@@ -32,7 +32,8 @@ export interface Project {
   image?: string;
   demoUrl?: string;
   sourceUrl?: string;
-  type: 'Mobile' | 'Web' | 'Desktop';
+  type: 'Mobile' | 'Web' | 'Desktop' | 'Mobile & Web';
+  types?: string[];
 }
 
 export interface ContactInfo {
@@ -111,6 +112,35 @@ export interface UIContent {
     mobileApp: string;
     featuresTitle: string;
     features: string[];
+    demoBtnLabel: string;
+    demoMessage: string;
+  };
+  mindSuite: {
+    backBtn: string;
+    tagline: string;
+    description: string[];
+    comingSoon: string;
+    inDevelopment: string;
+    highlightsTitle: string;
+    highlights: {
+      voice: string;
+      ai: string;
+      privacy: string;
+      crossPlatform: string;
+    };
+    assessmentsTitle: string;
+    assessments: {
+      phq9: { domain: string; desc: string };
+      gad7: { domain: string; desc: string };
+      loneliness: { scale: string; domain: string; desc: string };
+      burnout: { scale: string; domain: string; desc: string };
+    };
+    howItWorksTitle: string;
+    steps: string[];
+    disclaimerTitle: string;
+    disclaimer: string;
+    demoBtnLabel: string;
+    demoUnavailableHint: string;
   };
 }
 

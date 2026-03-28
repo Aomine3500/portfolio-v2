@@ -170,7 +170,8 @@ export const content: { en: AppContent; fr: AppContent } = {
         title: "Gaztrack Pro",
         description: "A modern cross-platform application (Web & Mobile) designed to streamline the distribution and management of gas bottles. Features include inventory tracking, delivery management, and reporting.",
         techStack: ["Flutter", "Dart", "Firebase", "Google Maps API"],
-        type: "Mobile",
+        type: "Mobile & Web",
+        types: ["Mobile", "Web"],
         image: GAZTRACK_IMAGE_URL
       },
       {
@@ -180,6 +181,16 @@ export const content: { en: AppContent; fr: AppContent } = {
         techStack: ["WinDev", "SQL Server", "Serial Port Comm"],
         type: "Desktop",
         image: "https://picsum.photos/id/2/600/400"
+      },
+      {
+        id: 3,
+        title: "Mind Suite",
+        description: "A voice-powered mental wellness app using AI to guide users through clinically validated psychological self-assessments (PHQ-9, GAD-7, Burnout, Loneliness). Coming soon on Android & iOS.",
+        techStack: ["Flutter", "Dart", "Firebase", "AI Voice"],
+        type: "Mobile",
+        types: ["Mobile"],
+        image: "/mindsuite/logo.png",
+        sourceUrl: "https://github.com/Aomine3500/mind_suite"
       }
     ],
     ui: {
@@ -251,7 +262,8 @@ export const content: { en: AppContent; fr: AppContent } = {
         backBtn: "Back to Portfolio",
         description: [
           "Gaztrack Pro is a comprehensive platform designed to streamline the distribution and management of domestic gas bottles.",
-          "It features a mobile application that helps gas truck drivers accurately record their sales on the go, and a powerful web administration dashboard to track driver activities, monitor inventory, and manage overall sales operations."
+          "It features a mobile application that helps gas truck drivers accurately record their sales on the go, and a powerful web administration dashboard to track driver activities, monitor inventory, and manage overall sales operations.",
+          "This project was developed within **GDH Management and Consulting** company, where I served as the lead developer."
         ],
         webDashboard: "Web Dashboard",
         mobileApp: "Mobile App",
@@ -261,7 +273,44 @@ export const content: { en: AppContent; fr: AppContent } = {
           "Comprehensive web dashboard for administrators",
           "Inventory and delivery management",
           "Detailed reporting and analytics"
-        ]
+        ],
+        demoBtnLabel: "Request a Demo",
+        demoMessage: "I would like to request a demo of the \"Gaztrack Pro\" application."
+      },
+      mindSuite: {
+        backBtn: "Back to Portfolio",
+        tagline: "Where clinical science meets the warmth of conversation.",
+        description: [
+          "Mind Suite is a voice-powered mental wellness application that guides users through structured psychological self-assessments using an intelligent AI voice assistant.",
+          "Instead of cold checkbox forms, users engage in a natural spoken dialogue — the AI listens, asks questions gently, and adapts the conversation to the selected assessment. The result is a more human, comfortable experience without compromising on scientific rigor."
+        ],
+        comingSoon: "Coming Soon",
+        inDevelopment: "In Development",
+        highlightsTitle: "Why Mind Suite?",
+        highlights: {
+          voice: "Voice-first experience — speak naturally, the AI listens and adapts, no forms to fill.",
+          ai: "AI-powered conversational engine guided by internationally recognized clinical scales.",
+          privacy: "Your conversations and results are fully confidential and never shared with third parties.",
+          crossPlatform: "Cross-platform (Android, iOS, Web) — coming soon on Android & iOS stores."
+        },
+        assessmentsTitle: "Clinically Validated Assessments",
+        assessments: {
+          phq9: { domain: "Depression", desc: "Patient Health Questionnaire — the gold standard for measuring depressive symptom severity." },
+          gad7: { domain: "Anxiety", desc: "Generalized Anxiety Disorder scale — widely adopted across clinical and research settings." },
+          loneliness: { scale: "UCLA", domain: "Loneliness", desc: "Evaluates perceived social connectedness and feelings of isolation in daily life." },
+          burnout: { scale: "MBI", domain: "Burnout", desc: "Measures emotional, physical, and cognitive depletion related to occupational stress." }
+        },
+        howItWorksTitle: "How It Works",
+        steps: [
+          "Choose an assessment to explore",
+          "The AI opens the session calmly",
+          "Speak naturally — AI adapts to you",
+          "Receive a clear interpreted summary"
+        ],
+        disclaimerTitle: "An Important Note",
+        disclaimer: "Mind Suite is a self-awareness and screening tool, not a clinical diagnostic service. If your results suggest elevated concern, we warmly encourage you to seek support from a qualified mental health professional.",
+        demoBtnLabel: "Request a Demo",
+        demoUnavailableHint: "Feature coming soon"
       }
     }
   },
@@ -421,7 +470,8 @@ export const content: { en: AppContent; fr: AppContent } = {
         title: "Gaztrack Pro",
         description: "Une application multiplateforme moderne (Web & Mobile) conçue pour rationaliser la distribution et la gestion des bouteilles de gaz. Fonctionnalités incluant le suivi des stocks, la gestion des livraisons et le reporting.",
         techStack: ["Flutter", "Dart", "Firebase", "API Google Maps"],
-        type: "Mobile",
+        type: "Mobile & Web",
+        types: ["Mobile", "Web"],
         image: GAZTRACK_IMAGE_URL
       },
       {
@@ -431,6 +481,16 @@ export const content: { en: AppContent; fr: AppContent } = {
         techStack: ["WinDev", "SQL Server", "Comm Port Série"],
         type: "Desktop",
         image: "https://picsum.photos/id/2/600/400"
+      },
+      {
+        id: 3,
+        title: "Mind Suite",
+        description: "Une application mobile de bien-être mental utilisant l'IA vocale pour guider les utilisateurs à travers des auto-évaluations psychologiques validées cliniquement (PHQ-9, GAD-7, Burnout, Solitude). Bientôt disponible sur Android & iOS.",
+        techStack: ["Flutter", "Dart", "Firebase", "IA Vocale"],
+        type: "Mobile",
+        types: ["Mobile"],
+        image: "/mindsuite/logo.png",
+        sourceUrl: "https://github.com/Aomine3500/mind_suite"
       }
     ],
     ui: {
@@ -502,7 +562,8 @@ export const content: { en: AppContent; fr: AppContent } = {
         backBtn: "Retour au Portfolio",
         description: [
           "Gaztrack Pro est une plateforme complète conçue pour rationaliser la distribution et la gestion des bouteilles de gaz domestiques.",
-          "Elle intègre une application mobile qui aide les chauffeurs de camions de gaz à enregistrer précisément leurs ventes en déplacement, ainsi qu'un puissant tableau de bord d'administration web pour suivre les activités des chauffeurs, contrôler les stocks et gérer l'ensemble des opérations de vente."
+          "Elle intègre une application mobile qui aide les chauffeurs de camions de gaz à enregistrer précisément leurs ventes en déplacement, ainsi qu'un puissant tableau de bord d'administration web pour suivre les activités des chauffeurs, contrôler les stocks et gérer l'ensemble des opérations de vente.",
+          "Ce projet a été développé au sein de la société **GDH Management and Consulting**, dont j'étais le développeur principal."
         ],
         webDashboard: "Tableau de Bord Web",
         mobileApp: "Application Mobile",
@@ -512,7 +573,44 @@ export const content: { en: AppContent; fr: AppContent } = {
           "Tableau de bord web complet pour les administrateurs",
           "Gestion des stocks et des livraisons",
           "Rapports détaillés et analyses"
-        ]
+        ],
+        demoBtnLabel: "Demander une Démo",
+        demoMessage: "Je souhaite demander une démo de l'application \"Gaztrack Pro\"."
+      },
+      mindSuite: {
+        backBtn: "Retour au Portfolio",
+        tagline: "Là où la science clinique rencontre la chaleur de la conversation.",
+        description: [
+          "Mind Suite est une application de bien-être mental par voix qui guide les utilisateurs à travers des auto-évaluations psychologiques structurées, menées par un assistant IA vocal intelligent.",
+          "Au lieu de formulaires impersonnels, l'utilisateur engage un dialogue parlé naturel avec l'IA qui écoute, pose des questions doucement et adapte la conversation à l'évaluation choisie. Le résultat est une expérience plus humaine et confortable, sans compromettre la rigueur scientifique."
+        ],
+        comingSoon: "Bientôt disponible",
+        inDevelopment: "En développement",
+        highlightsTitle: "Pourquoi Mind Suite ?",
+        highlights: {
+          voice: "Experience vocale — parlez naturellement, l'IA écoute et s'adapte, pas de formulaires.",
+          ai: "Moteur conversationnel IA guidé par des échelles cliniques internationalement reconnues.",
+          privacy: "Vos conversations et résultats sont entièrement confidentiels et jamais partagés.",
+          crossPlatform: "Multiplateforme (Android, iOS, Web) — bientôt sur les stores Android & iOS."
+        },
+        assessmentsTitle: "Évaluations Validées Cliniquement",
+        assessments: {
+          phq9: { domain: "Dépression", desc: "Patient Health Questionnaire — la référence pour mesurer la sévérité des symptômes dépressifs." },
+          gad7: { domain: "Anxieté", desc: "Échelle des troubles anxieux généralisés — largement utilisée en milieu clinique et de recherche." },
+          loneliness: { scale: "UCLA", domain: "Solitude", desc: "Evalue le sentiment de connexion sociale et d'isolement perçu dans la vie quotidienne." },
+          burnout: { scale: "MBI", domain: "Burnout", desc: "Mesure l'épuisement émotionnel, physique et cognitif lié au stress professionnel." }
+        },
+        howItWorksTitle: "Comment ça marche",
+        steps: [
+          "Choisissez une évaluation à explorer",
+          "L'IA ouvre la session calmement",
+          "Parlez naturellement — l'IA s'adapte",
+          "Recevez un résumé clair et interprété"
+        ],
+        disclaimerTitle: "Note Importante",
+        disclaimer: "Mind Suite est un outil de sensibilisation et de dépistage, pas un service de diagnostic clinique. Si vos résultats indiquent une préoccupation élevée, nous vous encourageons vivement à consulter un professionnel de santé mentale qualifié.",
+        demoBtnLabel: "Demander une Démo",
+        demoUnavailableHint: "Fonctionnalité bientôt disponible"
       }
     }
   }

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Phone, Mail, MapPin, Linkedin, Github, Send, CheckCircle, Facebook, AlertCircle, Copy } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { ContactInfo, AppContent, UIContent } from '../types';
@@ -14,13 +14,23 @@ interface ContactProps {
   contactInfo: ContactInfo;
   ui: UIContent['contact'];
   personalInfo: AppContent['personalInfo'];
+  prefillMessage?: string;
+  onPrefillConsumed?: () => void;
 }
 
-const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo }) => {
+const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefillMessage, onPrefillConsumed }) => {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [copiedText, setCopiedText] = useState<string | null>(null);
+  const [messageValue, setMessageValue] = useState<string>('');
   const form = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (prefillMessage) {
+      setMessageValue(prefillMessage);
+      onPrefillConsumed?.();
+    }
+  }, [prefillMessage]);
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -44,6 +54,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo }) => {
     .then(() => {
         setFormStatus('success');
         if (form.current) form.current.reset();
+        setMessageValue('');
         setTimeout(() => setFormStatus('idle'), 5000);
     }, (error: { text: string }) => {
         setFormStatus('error');
@@ -199,6 +210,8 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo }) => {
                   name="message"
                   rows={5}
                   required
+                  value={messageValue}
+                  onChange={(e) => setMessageValue(e.target.value)}
                   className="w-full px-5 py-4 bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl focus:outline-none focus:border-primary-500 transition-all text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 resize-none"
                   placeholder="Tell me about your project..."
                 />

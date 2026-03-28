@@ -20,6 +20,7 @@ const AppContent: React.FC = () => {
     return (saved as Language) || "en";
   });
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [prefillMessage, setPrefillMessage] = useState<string>('');
   const data = content[language];
 
   useEffect(() => {
@@ -46,13 +47,20 @@ const AppContent: React.FC = () => {
         <About data={data.personalInfo} ui={data.ui.about} />
         <Experience experiences={data.experiences} ui={data.ui.experience} />
         <Skills categories={data.skillCategories} ui={data.ui.skills} />
-        <Projects projects={data.projects} ui={data.ui.projects} language={language} />
+        <Projects projects={data.projects} ui={data.ui.projects} language={language} onRequestDemo={(msg) => {
+          setPrefillMessage(msg);
+          setTimeout(() => {
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }} />
         <Education education={data.education} ui={data.ui.education} />
       </main>
       <Contact
         contactInfo={data.contactInfo}
         ui={data.ui.contact}
         personalInfo={data.personalInfo}
+        prefillMessage={prefillMessage}
+        onPrefillConsumed={() => setPrefillMessage('')}
       />
 
       <AnimatePresence>

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Github, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, MessageSquare, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { content } from '../constants';
 import { Language } from '../App';
 
 interface Props {
   language: Language;
   onClose: () => void;
+  onRequestDemo: (message: string) => void;
 }
 
 const WEB_SCREENSHOTS_ALL = Array.from({ length: 43 }, (_, i) => `/gaztrack/web/${i + 1}.jpg`);
@@ -15,9 +16,17 @@ const MOBILE_SCREENSHOTS_ALL = Array.from({ length: 15 }, (_, i) => `/gaztrack/m
 const WEB_SCREENSHOTS = WEB_SCREENSHOTS_ALL.slice(0, 6);
 const MOBILE_SCREENSHOTS = MOBILE_SCREENSHOTS_ALL.slice(0, 6);
 
-const GaztrackProDetails: React.FC<Props> = ({ language, onClose }) => {
+const GaztrackProDetails: React.FC<Props> = ({ language, onClose, onRequestDemo }) => {
   const ui = content[language].ui.gaztrackPro;
-  const projectInfo = content[language].projects.find(p => p.id === 1)!;
+  const projectInfo = content[language].projects.find(p => p.id === 1)!
+
+  // Helper to render text with **bold** parts
+  const renderWithBold = (text: string) => {
+    const parts = text.split(/\*\*(.*?)\*\*/);
+    return parts.map((part, i) =>
+      i % 2 === 1 ? <strong key={i} className="font-bold text-gray-900 dark:text-white">{part}</strong> : part
+    );
+  };
 
   const [lightboxOpen, setLightboxOpen] = useState<{ type: 'web' | 'mobile', index: number } | null>(null);
 
@@ -102,15 +111,18 @@ const GaztrackProDetails: React.FC<Props> = ({ language, onClose }) => {
                </div>
                {ui.description.map((desc, idx) => (
                  <p key={idx} className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                   {desc}
+                   {renderWithBold(desc)}
                  </p>
                ))}
                
                <div className="pt-4 flex gap-4">
-                  <a href="https://github.com/Aomine3500/gaz_track_pro_3.38.git" target="_blank" rel="noopener noreferrer" className="bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-transform hover:scale-105">
-                    <Github size={20} />
-                    Source Code
-                  </a>
+                  <button
+                    onClick={() => { onRequestDemo(ui.demoMessage); onClose(); }}
+                    className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-transform hover:scale-105 shadow-lg shadow-primary-500/25"
+                  >
+                    <MessageSquare size={20} />
+                    {ui.demoBtnLabel}
+                  </button>
                </div>
             </div>
 
