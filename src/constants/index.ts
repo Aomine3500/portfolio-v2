@@ -1,6 +1,6 @@
 import { AppContent } from '../types';
 
-const PROFILE_IMAGE_URL = "https://i.imgur.com/OzNgKWc.jpeg"; 
+const PROFILE_IMAGE_URL = "/Portfolio.jpg";
 const GAZTRACK_IMAGE_URL = "/gaztrack/gaztrack-pro-card.jpg";
 
 const contactInfoBase = {
