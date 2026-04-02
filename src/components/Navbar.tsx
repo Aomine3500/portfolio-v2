@@ -66,7 +66,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, ui }) => {
               onClick={() => scrollToSection('home')}
               className="cursor-pointer"
             >
-              <span className="text-2xl font-extrabold text-primary-500 italic tracking-tight">Ahmed</span>
+              <span className="text-2xl font-extrabold text-primary-500 italic tracking-tight">Ahmed Znouda</span>
             </motion.div>
 
             {/* Desktop Navigation */}

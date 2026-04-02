@@ -86,8 +86,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
 
         <motion.div
           layout
-          className="flex flex-row overflow-x-auto pb-12 gap-8 px-4 snap-x snap-mandatory scrollbar-hide scroll-smooth"
+          className="flex flex-row overflow-x-auto pb-12 gap-8 px-4 lg:px-8 snap-x snap-mandatory scrollbar-hide scroll-smooth"
         >
+          {/* Spacer pour un centrage parfait et résilient */}
+          <div className="m-auto flex-shrink-0" />
           <AnimatePresence mode="popLayout">
             {sortedProjects.map((project) => (
               <motion.div
@@ -97,7 +99,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                 animate={{ opacity: 1, scale: 1, x: 0 }}
                 exit={{ opacity: 0, scale: 0.9, x: -20 }}
                 transition={{ duration: 0.4 }}
-                className="group rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] overflow-hidden hover:border-primary-500/30 transition-all duration-500 flex flex-col h-full cursor-pointer flex-shrink-0 snap-center w-[300px] sm:w-[380px] md:w-[480px] shadow-sm hover:shadow-xl dark:shadow-none"
+                className="group rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] overflow-hidden hover:border-primary-500/30 transition-all duration-500 flex flex-col cursor-pointer flex-shrink-0 snap-center w-[82vw] sm:w-[350px] md:w-[420px] h-[520px] shadow-sm hover:shadow-xl dark:shadow-none"
                 onClick={() => {
                   if (project.title === 'Gaztrack Pro') setSelectedProject('Gaztrack Pro');
                   if (project.title === 'Mind Suite') setSelectedProject('Mind Suite');
@@ -141,7 +143,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                           iOS — {mindSuiteUi.comingSoon}
                         </span>
                       </div>
-                      <p className="text-gray-500 dark:text-gray-400 mb-6 flex-1 text-sm leading-relaxed">{project.description}</p>
+                      <p className="text-gray-500 dark:text-gray-400 mb-6 flex-1 text-sm leading-relaxed line-clamp-3">{project.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {project.techStack.map((tech) => (
                           <span key={tech} className="px-3 py-1.5 rounded-lg bg-violet-50 dark:bg-violet-500/10 border border-violet-100 dark:border-violet-500/20 text-violet-600 dark:text-violet-400 text-xs font-semibold">
@@ -155,7 +157,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                   /* ── Standard project card ── */
                   <>
                     {/* Image */}
-                    <div className="relative h-60 overflow-hidden">
+                    <div className="relative h-60 overflow-hidden rounded-t-2xl">
                       <img
                         src={project.image}
                         alt={project.title}
@@ -203,11 +205,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                     </div>
 
                     {/* Content */}
-                    <div className="p-8 flex flex-col flex-1">
+                    <div className="p-8 flex flex-col flex-1 rounded-b-2xl">
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-primary-500 transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-gray-500 dark:text-gray-400 mb-6 flex-1">{project.description}</p>
+                      <p className="text-gray-500 dark:text-gray-400 mb-6 flex-1 text-sm leading-relaxed line-clamp-3">{project.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {project.techStack.map((tech) => (
                           <span
@@ -224,6 +226,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
               </motion.div>
             ))}
           </AnimatePresence>
+          {/* Spacer pour un centrage parfait et résilient */}
+          <div className="m-auto flex-shrink-0" />
         </motion.div>
       </div>
 
