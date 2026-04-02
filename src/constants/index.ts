@@ -23,7 +23,7 @@ export const content: { en: AppContent; fr: AppContent } = {
     },
     contactInfo: {
       ...contactInfoBase,
-      address: "82 Wahran St. 8020 Soliman - Nabeul, Tunisia",
+      address: "Tunis, Tunisia",
     },
     experiences: [
       {
