@@ -5,9 +5,9 @@ import { ContactInfo, AppContent, UIContent } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const EMAILJS_CONFIG = {
-  SERVICE_ID: "service_pxxk1ut",
-  TEMPLATE_ID: "template_65qcolw",
-  PUBLIC_KEY: "-eaZq4I5RByl6-PLF"
+  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || "",
+  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "",
+  PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ""
 };
 
 interface ContactProps {
@@ -23,6 +23,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [copiedText, setCopiedText] = useState<string | null>(null);
   const [messageValue, setMessageValue] = useState<string>('');
+  const [lastSentTime, setLastSentTime] = useState<number>(0);
   const form = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -42,6 +43,21 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
     e.preventDefault();
     if (!form.current) return;
 
+    const now = Date.now();
+    if (now - lastSentTime < 60000) {
+      setFormStatus('error');
+      setErrorMessage('Please wait a minute before sending another message.');
+      setTimeout(() => setFormStatus('idle'), 5000);
+      return;
+    }
+
+    if (!EMAILJS_CONFIG.SERVICE_ID || !EMAILJS_CONFIG.TEMPLATE_ID || !EMAILJS_CONFIG.PUBLIC_KEY) {
+      setFormStatus('error');
+      setErrorMessage('Email system configuration is missing.');
+      setTimeout(() => setFormStatus('idle'), 5000);
+      return;
+    }
+
     setFormStatus('submitting');
     setErrorMessage('');
 
@@ -53,6 +69,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
     )
     .then(() => {
         setFormStatus('success');
+        setLastSentTime(Date.now());
         if (form.current) form.current.reset();
         setMessageValue('');
         setTimeout(() => setFormStatus('idle'), 5000);
