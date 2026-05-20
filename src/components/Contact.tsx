@@ -10,6 +10,17 @@ const EMAILJS_CONFIG = {
   PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ""
 };
 
+const RATE_LIMIT_MS = 120000;
+const MAX_MESSAGE_LENGTH = 2000;
+const MAX_NAME_LENGTH = 100;
+
+const sanitizeInput = (str: string): string => {
+  return str
+    .replace(/<[^>]*>/g, '')
+    .replace(/(https?:\/\/[^\s]+)/gi, '')
+    .trim();
+};
+
 interface ContactProps {
   contactInfo: ContactInfo;
   ui: UIContent['contact'];
@@ -23,7 +34,10 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [copiedText, setCopiedText] = useState<string | null>(null);
   const [messageValue, setMessageValue] = useState<string>('');
-  const [lastSentTime, setLastSentTime] = useState<number>(0);
+  const [lastSentTime, setLastSentTime] = useState<number>(() => {
+    const saved = localStorage.getItem('lastSentTime');
+    return saved ? parseInt(saved, 10) : 0;
+  });
   const form = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -44,9 +58,36 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
     if (!form.current) return;
 
     const now = Date.now();
-    if (now - lastSentTime < 60000) {
+    if (now - lastSentTime < RATE_LIMIT_MS) {
+      const remainingSec = Math.ceil((RATE_LIMIT_MS - (now - lastSentTime)) / 1000);
       setFormStatus('error');
-      setErrorMessage('Please wait a minute before sending another message.');
+      setErrorMessage(`Please wait ${remainingSec}s before sending another message.`);
+      setTimeout(() => setFormStatus('idle'), 5000);
+      return;
+    }
+
+    const nameInput = form.current.user_name?.value || '';
+    const messageInput = messageValue;
+    const sanitizedMessage = sanitizeInput(messageInput);
+    const sanitizedName = sanitizeInput(nameInput);
+
+    if (sanitizedName.length > MAX_NAME_LENGTH) {
+      setFormStatus('error');
+      setErrorMessage('Name is too long.');
+      setTimeout(() => setFormStatus('idle'), 5000);
+      return;
+    }
+
+    if (sanitizedMessage.length > MAX_MESSAGE_LENGTH) {
+      setFormStatus('error');
+      setErrorMessage('Message is too long. Please keep it under 2000 characters.');
+      setTimeout(() => setFormStatus('idle'), 5000);
+      return;
+    }
+
+    if (!sanitizedMessage.trim()) {
+      setFormStatus('error');
+      setErrorMessage('Message cannot be empty after sanitization.');
       setTimeout(() => setFormStatus('idle'), 5000);
       return;
     }
@@ -58,6 +99,9 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
       return;
     }
 
+    if (form.current.user_name) form.current.user_name.value = sanitizedName;
+    setMessageValue(sanitizedMessage);
+
     setFormStatus('submitting');
     setErrorMessage('');
 
@@ -68,15 +112,18 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
       EMAILJS_CONFIG.PUBLIC_KEY
     )
     .then(() => {
-        setFormStatus('success');
-        setLastSentTime(Date.now());
-        if (form.current) form.current.reset();
-        setMessageValue('');
-        setTimeout(() => setFormStatus('idle'), 5000);
-    }, (error: { text: string }) => {
-        setFormStatus('error');
-        setErrorMessage(error.text || 'Failed to send. Please try again later.');
-        setTimeout(() => setFormStatus('idle'), 5000);
+      setFormStatus('success');
+      const now = Date.now();
+      setLastSentTime(now);
+      localStorage.setItem('lastSentTime', String(now));
+      if (form.current) form.current.reset();
+      setMessageValue('');
+      setTimeout(() => setFormStatus('idle'), 5000);
+    }, (error: unknown) => {
+      setFormStatus('error');
+      console.error('EmailJS error:', error);
+      setErrorMessage('Failed to send. Please try again later.');
+      setTimeout(() => setFormStatus('idle'), 5000);
     });
   };
 
@@ -140,7 +187,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
 
             <div className="p-8 rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] relative group overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                 <button
+                <button
                   onClick={() => copyToClipboard(contactInfo.address)}
                   className="p-2 rounded-xl bg-gray-100 dark:bg-white/5 text-gray-500 hover:text-primary-500 transition-colors"
                 >
@@ -206,6 +253,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
                   <input
                     name="user_name"
                     required
+                    maxLength={MAX_NAME_LENGTH}
                     className="w-full px-5 py-4 bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl focus:outline-none focus:border-primary-500 transition-all text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600"
                     placeholder="Your Name"
                   />
@@ -227,6 +275,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
                   name="message"
                   rows={5}
                   required
+                  maxLength={MAX_MESSAGE_LENGTH}
                   value={messageValue}
                   onChange={(e) => setMessageValue(e.target.value)}
                   className="w-full px-5 py-4 bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl focus:outline-none focus:border-primary-500 transition-all text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 resize-none"
@@ -236,8 +285,8 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
               <button
                 type="submit"
                 disabled={formStatus === 'submitting'}
-                className={`w-full py-4 rounded-xl font-bold text-white shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95
-                  ${formStatus === 'success' ? 'bg-emerald-500' : formStatus === 'error' ? 'bg-red-500' : 'bg-primary-500 hover:bg-primary-600 shadow-primary-500/25'}
+                className={`w-full py-4 rounded-xl font-bold text-white shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95 
+                ${formStatus === 'success' ? 'bg-emerald-500' : formStatus === 'error' ? 'bg-red-500' : 'bg-primary-500 hover:bg-primary-600 shadow-primary-500/25'} 
                 `}
               >
                 {formStatus === 'idle' && <><Send size={20} /> {ui.sendBtn}</>}

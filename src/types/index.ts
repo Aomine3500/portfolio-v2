@@ -19,9 +19,14 @@ export interface Education {
   details?: string;
 }
 
+export interface Skill {
+  name: string;
+  level: number;
+}
+
 export interface SkillCategory {
   name: string;
-  skills: string[];
+  skills: Skill[];
 }
 
 export interface Project {

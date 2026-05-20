@@ -19,7 +19,10 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, ui }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(prev => {
+        const next = window.scrollY > 20;
+        return prev !== next ? next : prev;
+      });
 
       const sections = ['home', ...ui.nav.map(item => item.id)];
       for (const section of [...sections].reverse()) {
@@ -27,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, ui }) => {
         if (element) {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 150) {
-            setActiveSection(section);
+            setActiveSection(prev => prev !== section ? section : prev);
             break;
           }
         }

@@ -145,27 +145,63 @@ export const content: { en: AppContent; fr: AppContent } = {
     skillCategories: [
       {
         name: "AI & Automation",
-        skills: ["n8n", "Python for AI", "LLM Orchestration", "Automated Triage Systems", "Prompt Engineering"]
+        skills: [
+          { name: "n8n", level: 85 },
+          { name: "Python for AI", level: 75 },
+          { name: "LLM Orchestration", level: 80 },
+          { name: "Automated Triage Systems", level: 82 },
+          { name: "Prompt Engineering", level: 88 }
+        ]
       },
       {
         name: "Development Stack",
-        skills: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "TypeScript", "Flutter", "Dart", "Tailwind CSS"]
+        skills: [
+          { name: "ReactJS", level: 85 },
+          { name: "NodeJS", level: 80 },
+          { name: "ExpressJS", level: 78 },
+          { name: "MongoDB", level: 82 },
+          { name: "TypeScript", level: 80 },
+          { name: "Flutter", level: 90 },
+          { name: "Dart", level: 88 },
+          { name: "Tailwind CSS", level: 85 }
+        ]
       },
       {
         name: "Legacy & Desktop",
-        skills: ["WinDev", "WebDev", "C# (Basic)", "Java (Basic)"]
+        skills: [
+          { name: "WinDev", level: 95 },
+          { name: "WebDev", level: 90 },
+          { name: "C# (Basic)", level: 40 },
+          { name: "Java (Basic)", level: 40 }
+        ]
       },
       {
         name: "Database",
-        skills: ["SQL Server", "MySQL", "PostgreSQL", "MongoDB", "Firebase"]
+        skills: [
+          { name: "SQL Server", level: 85 },
+          { name: "MySQL", level: 80 },
+          { name: "PostgreSQL", level: 75 },
+          { name: "MongoDB", level: 82 },
+          { name: "Firebase", level: 82 }
+        ]
       },
       {
         name: "IT Support & Tools",
-        skills: ["Active Directory", "Citrix", "TeamViewer", "Windows Server", "Office Suite"]
+        skills: [
+          { name: "Active Directory", level: 80 },
+          { name: "Citrix", level: 75 },
+          { name: "TeamViewer", level: 85 },
+          { name: "Windows Server", level: 78 },
+          { name: "Office Suite", level: 90 }
+        ]
       },
       {
         name: "Languages",
-        skills: ["Arabic (Native)", "French (Fluent)", "English (B1 - Good)"]
+        skills: [
+          { name: "Arabic (Native)", level: 100 },
+          { name: "French (Fluent)", level: 90 },
+          { name: "English (B1 - Good)", level: 65 }
+        ]
       }
     ],
     projects: [
@@ -329,7 +365,7 @@ export const content: { en: AppContent; fr: AppContent } = {
     },
     contactInfo: {
       ...contactInfoBase,
-      address: "82 Rue Wahran, 8020 Soliman - Nabeul, Tunisie",
+      address: "Tunis-Tunisie",
     },
     experiences: [
       {
@@ -451,27 +487,63 @@ export const content: { en: AppContent; fr: AppContent } = {
     skillCategories: [
       {
         name: "IA & Automatisation",
-        skills: ["n8n", "Python pour l'IA", "Orchestration LLM", "Systèmes de Triage Automatisé", "Prompt Engineering"]
+        skills: [
+          { name: "n8n", level: 85 },
+          { name: "Python pour l'IA", level: 75 },
+          { name: "Orchestration LLM", level: 80 },
+          { name: "Systèmes de Triage Automatisé", level: 82 },
+          { name: "Prompt Engineering", level: 88 }
+        ]
       },
       {
         name: "Stack de Développement",
-        skills: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "TypeScript", "Flutter", "Dart", "Tailwind CSS"]
+        skills: [
+          { name: "ReactJS", level: 85 },
+          { name: "NodeJS", level: 80 },
+          { name: "ExpressJS", level: 78 },
+          { name: "MongoDB", level: 82 },
+          { name: "TypeScript", level: 80 },
+          { name: "Flutter", level: 90 },
+          { name: "Dart", level: 88 },
+          { name: "Tailwind CSS", level: 85 }
+        ]
       },
       {
         name: "Legacy & Desktop",
-        skills: ["WinDev", "WebDev", "C# (Basique)", "Java (Basique)"]
+        skills: [
+          { name: "WinDev", level: 95 },
+          { name: "WebDev", level: 90 },
+          { name: "C# (Basique)", level: 40 },
+          { name: "Java (Basique)", level: 40 }
+        ]
       },
       {
         name: "Base de Données",
-        skills: ["SQL Server", "MySQL", "PostgreSQL", "MongoDB", "Firebase"]
+        skills: [
+          { name: "SQL Server", level: 85 },
+          { name: "MySQL", level: 80 },
+          { name: "PostgreSQL", level: 75 },
+          { name: "MongoDB", level: 82 },
+          { name: "Firebase", level: 82 }
+        ]
       },
       {
         name: "Support IT & Outils",
-        skills: ["Active Directory", "Citrix", "TeamViewer", "Windows Server", "Suite Office"]
+        skills: [
+          { name: "Active Directory", level: 80 },
+          { name: "Citrix", level: 75 },
+          { name: "TeamViewer", level: 85 },
+          { name: "Windows Server", level: 78 },
+          { name: "Suite Office", level: 90 }
+        ]
       },
       {
         name: "Langues",
-        skills: ["Arabe (Natif)", "Français (Courant)", "Anglais (B1 - Bon)"]
+        skills: [
+          { name: "Arabe (Natif)", level: 100 },
+          { name: "Français (Courant)", level: 90 },
+          { name: "Anglais (B1 - Bon)", level: 65 }
+        ]
       }
     ],
     projects: [

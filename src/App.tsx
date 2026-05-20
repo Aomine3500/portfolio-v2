@@ -25,6 +25,7 @@ const AppContent: React.FC = () => {
 
   useEffect(() => {
     localStorage.setItem('language', language);
+    document.documentElement.lang = language;
   }, [language]);
 
   useEffect(() => {
