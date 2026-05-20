@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Abdelhamid Znouda — Portfolio v2
+# 🚀 Ahmed Znouda — Portfolio v2
 
 **A modern, bilingual, full-featured personal portfolio built with React + TypeScript + Vite**
 
