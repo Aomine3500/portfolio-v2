@@ -4,7 +4,7 @@ import { Project, UIContent } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Language } from '../App';
 import GaztrackProDetails from './GaztrackProDetails';
-import MindSuiteDetails from './MindSuiteDetails';
+import MindScreenDetails from './MindScreenDetails';
 import { content } from '../constants';
 
 interface ProjectsProps {
@@ -17,7 +17,7 @@ interface ProjectsProps {
 const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDemo }) => {
   const [filter, setFilter] = useState<string>('all');
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
-  const mindSuiteUi = content[language].ui.mindSuite;
+  const mindScreenUi = content[language].ui.mindScreen;
 
   const filteredProjects = filter === 'all'
     ? projects
@@ -26,10 +26,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
         return allTypes.some(t => t.toLowerCase() === filter.toLowerCase());
       });
 
-  // Sort projects so that "Mind Suite" is always first
+  // Sort projects so that "Mind Screen" is always first
   const sortedProjects = [...filteredProjects].sort((a, b) => {
-    if (a.title === 'Mind Suite') return -1;
-    if (b.title === 'Mind Suite') return 1;
+    if (a.title === 'Mind Screen') return -1;
+    if (b.title === 'Mind Screen') return 1;
     return a.id - b.id; // Secondary sort by id
   });
 
@@ -102,11 +102,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                 className="group rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] overflow-hidden hover:border-primary-500/30 transition-all duration-500 flex flex-col cursor-pointer flex-shrink-0 snap-center w-[82vw] sm:w-[350px] md:w-[420px] h-[520px] shadow-sm hover:shadow-xl dark:shadow-none"
                 onClick={() => {
                   if (project.title === 'Gaztrack Pro') setSelectedProject('Gaztrack Pro');
-                  if (project.title === 'Mind Suite') setSelectedProject('Mind Suite');
+                  if (project.title === 'Mind Screen') setSelectedProject('Mind Screen');
                 }}
               >
-                {project.title === 'Mind Suite' ? (
-                  /* ── Special MindSuite card ── */
+                {project.title === 'Mind Screen' ? (
+                  /* ── Special Mind Screen card ── */
                   <>
                     <div className="relative h-60 rounded-t-2xl overflow-hidden bg-gradient-to-br from-blue-50 via-violet-50 to-indigo-100 dark:from-blue-900/20 dark:via-violet-900/20 dark:to-indigo-900/20 flex items-center justify-center">
                       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.15)_0%,transparent_70%)]" />
@@ -127,7 +127,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                       <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                         <span className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-violet-500 text-white text-xs font-bold shadow-lg shadow-violet-500/30 whitespace-nowrap">
                           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                          {mindSuiteUi.inDevelopment}
+                          {mindScreenUi.inDevelopment}
                         </span>
                       </div>
                     </div>
@@ -137,13 +137,37 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                       </h3>
                       <div className="flex flex-wrap gap-1.5 mb-4">
                         <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
-                          Android — {mindSuiteUi.comingSoon}
+                          Android — {mindScreenUi.comingSoon}
                         </span>
                         <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20">
-                          iOS — {mindSuiteUi.comingSoon}
+                          iOS — {mindScreenUi.comingSoon}
                         </span>
+                        {project.websiteUrl && (
+                          <a
+                            href={project.websiteUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-violet-50 dark:bg-violet-500/10 text-violet-600 dark:text-violet-400 border border-violet-200 dark:border-violet-500/20 hover:bg-violet-100 dark:hover:bg-violet-500/20 transition-colors"
+                          >
+                            <Globe size={11} />
+                            {mindScreenUi.websiteCardBadge}
+                          </a>
+                        )}
                       </div>
-                      <p className="text-gray-500 dark:text-gray-400 mb-6 flex-1 text-sm leading-relaxed line-clamp-3">{project.description}</p>
+                      <p className="text-gray-500 dark:text-gray-400 mb-4 flex-1 text-sm leading-relaxed line-clamp-3">{project.description}</p>
+                      {project.websiteUrl && (
+                        <a
+                          href={project.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="mb-4 inline-flex items-center gap-1.5 w-fit text-xs font-bold text-violet-600 dark:text-violet-400 hover:underline"
+                        >
+                          <ExternalLink size={13} />
+                          mind-screen.com
+                        </a>
+                      )}
                       <div className="flex flex-wrap gap-2">
                         {project.techStack.map((tech) => (
                           <span key={tech} className="px-3 py-1.5 rounded-lg bg-violet-50 dark:bg-violet-500/10 border border-violet-100 dark:border-violet-500/20 text-violet-600 dark:text-violet-400 text-xs font-semibold">
@@ -235,8 +259,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
         {selectedProject === 'Gaztrack Pro' && (
           <GaztrackProDetails language={language} onClose={() => setSelectedProject(null)} onRequestDemo={onRequestDemo} />
         )}
-        {selectedProject === 'Mind Suite' && (
-          <MindSuiteDetails language={language} onClose={() => setSelectedProject(null)} />
+        {selectedProject === 'Mind Screen' && (
+          <MindScreenDetails language={language} onClose={() => setSelectedProject(null)} />
         )}
       </AnimatePresence>
     </section>

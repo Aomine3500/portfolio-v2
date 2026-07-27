@@ -224,13 +224,14 @@ export const content: { en: AppContent; fr: AppContent } = {
       },
       {
         id: 3,
-        title: "Mind Suite",
+        title: "Mind Screen",
         description: "An AI-driven mental health screening tool leveraging PHQ-9 and GAD-7 clinical protocols to deliver automated initial triage and intelligent medical guidance. An AI voice assistant conducts structured assessments, interprets results, and routes users to appropriate care pathways.",
         techStack: ["Flutter", "Dart", "Firebase", "AI Voice", "LLM Orchestration"],
         type: "Mobile",
         types: ["Mobile"],
-        image: "/mindsuite/logo.png",
-        sourceUrl: "https://github.com/Aomine3500/mind_suite"
+        image: "/mindscreen/icon.png",
+        sourceUrl: "https://github.com/Aomine3500/mind_suite",
+        websiteUrl: "https://mind-screen.com/"
       }
     ],
     ui: {
@@ -273,6 +274,7 @@ export const content: { en: AppContent; fr: AppContent } = {
         subtitle: "Highlights from my development portfolio",
         sourceBtn: "Source",
         demoBtn: "Demo",
+        websiteBtn: "Website",
         filters: {
           all: "All Projects",
           mobile: "Mobile",
@@ -319,16 +321,16 @@ export const content: { en: AppContent; fr: AppContent } = {
         demoBtnLabel: "Request a Demo",
         demoMessage: "I would like to request a demo of the \"Gaztrack Pro\" application."
       },
-      mindSuite: {
+      mindScreen: {
         backBtn: "Back to Portfolio",
         tagline: "AI-Driven Mental Health Triage — Where Clinical Science Meets Intelligent Automation.",
         description: [
-          "Mind Suite is an AI-driven mental health screening tool that leverages PHQ-9 and GAD-7 clinical protocols to deliver automated initial triage and intelligent medical guidance — bringing enterprise-grade decision automation to mental healthcare.",
+          "Mind Screen is an AI-driven mental health screening tool that leverages PHQ-9 and GAD-7 clinical protocols to deliver automated initial triage and intelligent medical guidance — bringing enterprise-grade decision automation to mental healthcare.",
           "Instead of cold checkbox forms, users engage in a natural spoken dialogue with an LLM-orchestrated AI voice assistant. The system conducts structured assessments, interprets results against validated clinical thresholds, and automatically routes users to appropriate care pathways — all without human intervention in the triage loop."
         ],
         comingSoon: "Coming Soon",
         inDevelopment: "In Development",
-        highlightsTitle: "Why Mind Suite?",
+        highlightsTitle: "Why Mind Screen?",
         highlights: {
           voice: "Voice-first interface — speak naturally, the AI listens, adapts, and scores in real time.",
           ai: "LLM-orchestrated triage engine guided by PHQ-9, GAD-7, and other internationally validated clinical scales.",
@@ -350,9 +352,11 @@ export const content: { en: AppContent; fr: AppContent } = {
           "System delivers an interpreted summary and routes to appropriate care"
         ],
         disclaimerTitle: "An Important Note",
-        disclaimer: "Mind Suite is an automated screening and triage tool, not a clinical diagnostic service. When elevated risk is detected, the system automatically recommends consulting a qualified mental health professional.",
+        disclaimer: "Mind Screen is an automated screening and triage tool, not a clinical diagnostic service. When elevated risk is detected, the system automatically recommends consulting a qualified mental health professional.",
         demoBtnLabel: "Request a Demo",
-        demoUnavailableHint: "Feature coming soon"
+        demoUnavailableHint: "Feature coming soon",
+        websiteBtnLabel: "Visit the Website",
+        websiteCardBadge: "Web — Online"
       }
     }
   },
@@ -566,13 +570,14 @@ export const content: { en: AppContent; fr: AppContent } = {
       },
       {
         id: 3,
-        title: "Mind Suite",
+        title: "Mind Screen",
         description: "Un outil de dépistage en santé mentale piloté par l'IA, utilisant les protocoles cliniques PHQ-9 et GAD-7 pour fournir un triage initial automatisé et une orientation médicale intelligente. Un assistant vocal IA conduit les évaluations structurées et oriente les utilisateurs vers les parcours de soins appropriés.",
         techStack: ["Flutter", "Dart", "Firebase", "IA Vocale", "Orchestration LLM"],
         type: "Mobile",
         types: ["Mobile"],
-        image: "/mindsuite/logo.png",
-        sourceUrl: "https://github.com/Aomine3500/mind_suite"
+        image: "/mindscreen/icon.png",
+        sourceUrl: "https://github.com/Aomine3500/mind_suite",
+        websiteUrl: "https://mind-screen.com/"
       }
     ],
     ui: {
@@ -615,6 +620,7 @@ export const content: { en: AppContent; fr: AppContent } = {
         subtitle: "Points forts de mon portfolio de développement",
         sourceBtn: "Code",
         demoBtn: "Démo",
+        websiteBtn: "Site Web",
         filters: {
           all: "Tous",
           mobile: "Mobile",
@@ -661,16 +667,16 @@ export const content: { en: AppContent; fr: AppContent } = {
         demoBtnLabel: "Demander une Démo",
         demoMessage: "Je souhaite demander une démo de l'application \"Gaztrack Pro\"."
       },
-      mindSuite: {
+      mindScreen: {
         backBtn: "Retour au Portfolio",
         tagline: "Triage en Santé Mentale Piloté par l'IA — La Science Clinique Rencontre l'Automatisation Intelligente.",
         description: [
-          "Mind Suite est un outil de dépistage en santé mentale piloté par l'IA qui s'appuie sur les protocoles cliniques PHQ-9 et GAD-7 pour fournir un triage initial automatisé et une orientation médicale intelligente — apportant l'automatisation de décision enterprise au domaine de la santé mentale.",
+          "Mind Screen est un outil de dépistage en santé mentale piloté par l'IA qui s'appuie sur les protocoles cliniques PHQ-9 et GAD-7 pour fournir un triage initial automatisé et une orientation médicale intelligente — apportant l'automatisation de décision enterprise au domaine de la santé mentale.",
           "Au lieu de formulaires impersonnels, l'utilisateur engage un dialogue naturel avec un assistant vocal IA orchestré par LLM. Le système conduit des évaluations structurées, interprète les résultats par rapport aux seuils cliniques validés, et oriente automatiquement les utilisateurs vers les parcours de soins appropriés — sans intervention humaine dans la boucle de triage."
         ],
         comingSoon: "Bientôt disponible",
         inDevelopment: "En développement",
-        highlightsTitle: "Pourquoi Mind Suite ?",
+        highlightsTitle: "Pourquoi Mind Screen ?",
         highlights: {
           voice: "Interface vocale — parlez naturellement, l'IA écoute, s'adapte et score en temps réel.",
           ai: "Moteur de triage orchestré par LLM, guidé par PHQ-9, GAD-7 et d'autres échelles cliniques validées.",
@@ -692,9 +698,11 @@ export const content: { en: AppContent; fr: AppContent } = {
           "Le système délivre un résumé interprété et oriente vers les soins appropriés"
         ],
         disclaimerTitle: "Note Importante",
-        disclaimer: "Mind Suite est un outil de dépistage et de triage automatisé, pas un service de diagnostic clinique. Lorsqu'un risque élevé est détecté, le système recommande automatiquement de consulter un professionnel de santé mentale qualifié.",
+        disclaimer: "Mind Screen est un outil de dépistage et de triage automatisé, pas un service de diagnostic clinique. Lorsqu'un risque élevé est détecté, le système recommande automatiquement de consulter un professionnel de santé mentale qualifié.",
         demoBtnLabel: "Demander une Démo",
-        demoUnavailableHint: "Fonctionnalité bientôt disponible"
+        demoUnavailableHint: "Fonctionnalité bientôt disponible",
+        websiteBtnLabel: "Visiter le Site Web",
+        websiteCardBadge: "Web — En ligne"
       }
     }
   }

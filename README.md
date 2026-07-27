@@ -96,8 +96,9 @@ portfolio-v2/
 │
 ├── public/                          # Assets statiques
 │   ├── Portfolio.jpg                # Photo de profil
-│   ├── mindsuite/
-│   │   └── logo.png                 # Logo du projet Mind Suite
+│   ├── mindscreen/
+│   │   ├── icon.png                 # Icône de l'application Mind Screen
+│   │   └── logo.png                 # Logo complet (avec nom) Mind Screen
 │   └── gaztrack/                    # Screenshots du projet Gaztrack Pro
 │       ├── web_*.png                # 43 captures d'écran (version web)
 │       └── mobile_*.png             # 15 captures d'écran (version mobile)
@@ -113,7 +114,7 @@ portfolio-v2/
 │   │   ├── Education.tsx            # Parcours académique
 │   │   ├── Contact.tsx              # Formulaire de contact + infos
 │   │   ├── GaztrackProDetails.tsx   # Modal détail — Gaztrack Pro
-│   │   └── MindSuiteDetails.tsx     # Modal détail — Mind Suite
+│   │   └── MindScreenDetails.tsx    # Modal détail — Mind Screen
 │   │
 │   ├── hooks/                       # Hooks React personnalisés
 │   │   ├── useTheme.tsx             # Gestion du thème (dark/light) via Context
@@ -188,7 +189,7 @@ Vitrine des projets avec :
 - **Carousel horizontal** (scroll horizontal masqué)
 - Filtres par type : **All / Mobile / Web / Desktop**
 - Carte projet avec stack technique, description, bouton de détail
-- Intégration des modales `GaztrackProDetails` et `MindSuiteDetails`
+- Intégration des modales `GaztrackProDetails` et `MindScreenDetails`
 
 #### `GaztrackProDetails.tsx`
 Modal projet Gaztrack Pro :
@@ -196,10 +197,11 @@ Modal projet Gaztrack Pro :
 - **Lightbox plein écran** avec navigation clavier (← →) et fermeture Échap
 - Bouton "Demander une démo"
 
-#### `MindSuiteDetails.tsx`
-Modal projet Mind Suite :
+#### `MindScreenDetails.tsx`
+Modal projet Mind Screen :
 - Présentation des fonctionnalités d'évaluation mentale
 - Points forts, comment ça marche, avertissement légal
+- Lien vers le site web officiel : https://mind-screen.com/
 
 #### `Contact.tsx`
 Section contact avec :

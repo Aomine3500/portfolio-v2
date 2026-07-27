@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Smartphone, Brain, ShieldCheck, Mic, ChevronRight, MessageSquare, Lock } from 'lucide-react';
+import { X, Smartphone, Brain, ShieldCheck, Mic, ChevronRight, MessageSquare, Lock, Globe, ExternalLink } from 'lucide-react';
 import { content } from '../constants';
 import { Language } from '../App';
 
@@ -9,8 +9,8 @@ interface Props {
   onClose: () => void;
 }
 
-const MindSuiteDetails: React.FC<Props> = ({ language, onClose }) => {
-  const ui = content[language].ui.mindSuite;
+const MindScreenDetails: React.FC<Props> = ({ language, onClose }) => {
+  const ui = content[language].ui.mindScreen;
   const projectInfo = content[language].projects.find(p => p.id === 3)!;
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const MindSuiteDetails: React.FC<Props> = ({ language, onClose }) => {
           {/* Header */}
           <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-white/80 dark:bg-[#0e0e14]/80 backdrop-blur-md border-b border-gray-100 dark:border-white/10">
             <div className="flex items-center gap-3">
-              <img src="/mindsuite/logo.png" alt="MindSuite Logo" className="w-10 h-10 object-contain" />
+              <img src="/mindscreen/icon.png" alt="Mind Screen Logo" className="w-10 h-10 object-contain" />
               <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
                 {projectInfo.title}
               </h2>
@@ -81,7 +81,7 @@ const MindSuiteDetails: React.FC<Props> = ({ language, onClose }) => {
               {/* Left: Logo + description */}
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <img src="/mindsuite/logo.png" alt="MindSuite" className="w-24 h-24 object-contain drop-shadow-xl" />
+                  <img src="/mindscreen/icon.png" alt="Mind Screen" className="w-24 h-24 object-contain drop-shadow-xl" />
                   <div>
                     {/* Coming soon badges */}
                     <div className="flex flex-wrap gap-2 mb-3">
@@ -93,6 +93,15 @@ const MindSuiteDetails: React.FC<Props> = ({ language, onClose }) => {
                         <Smartphone size={12} />
                         iOS — {ui.comingSoon}
                       </span>
+                      <a
+                        href={projectInfo.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-violet-50 dark:bg-violet-500/10 text-violet-600 dark:text-violet-400 text-xs font-bold border border-violet-200 dark:border-violet-500/20 hover:bg-violet-100 dark:hover:bg-violet-500/20 transition-colors"
+                      >
+                        <Globe size={12} />
+                        {ui.websiteCardBadge}
+                      </a>
                     </div>
                     {/* Tech stack */}
                     <div className="flex flex-wrap gap-2">
@@ -114,7 +123,17 @@ const MindSuiteDetails: React.FC<Props> = ({ language, onClose }) => {
                   </p>
                 ))}
 
-                <div className="pt-2 flex gap-3 flex-wrap">
+                <div className="pt-2 flex gap-3 flex-wrap items-center">
+                  <a
+                    href={projectInfo.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-gradient-to-r from-blue-500 to-violet-500 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:brightness-110 transition-all"
+                  >
+                    <Globe size={16} className="flex-shrink-0" />
+                    {ui.websiteBtnLabel}
+                    <ExternalLink size={14} className="flex-shrink-0 opacity-80" />
+                  </a>
                   <button
                     disabled
                     title={ui.demoUnavailableHint}
@@ -214,4 +233,4 @@ const MindSuiteDetails: React.FC<Props> = ({ language, onClose }) => {
   );
 };
 
-export default MindSuiteDetails;
+export default MindScreenDetails;

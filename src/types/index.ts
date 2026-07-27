@@ -37,6 +37,7 @@ export interface Project {
   image?: string;
   demoUrl?: string;
   sourceUrl?: string;
+  websiteUrl?: string;
   type: 'Mobile' | 'Web' | 'Desktop' | 'Mobile & Web';
   types?: string[];
 }
@@ -85,6 +86,7 @@ export interface UIContent {
     subtitle: string;
     sourceBtn: string;
     demoBtn: string;
+    websiteBtn: string;
     filters: {
       all: string;
       mobile: string;
@@ -122,7 +124,7 @@ export interface UIContent {
     demoBtnLabel: string;
     demoMessage: string;
   };
-  mindSuite: {
+  mindScreen: {
     backBtn: string;
     tagline: string;
     description: string[];
@@ -148,6 +150,8 @@ export interface UIContent {
     disclaimer: string;
     demoBtnLabel: string;
     demoUnavailableHint: string;
+    websiteBtnLabel: string;
+    websiteCardBadge: string;
   };
 }
 
