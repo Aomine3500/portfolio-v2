@@ -10,8 +10,8 @@ interface ExperienceProps {
 
 const ExperienceComponent: React.FC<ExperienceProps> = ({ experiences, ui }) => {
   return (
-    <section id="experience" className="py-24 bg-white dark:bg-[#0e0e14] relative overflow-hidden">
-      <div className="absolute top-1/2 right-0 w-[300px] h-[300px] bg-primary-500/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="experience" className="py-24 section-base relative overflow-hidden">
+      <div className="absolute top-1/2 right-0 w-[300px] h-[300px] bg-primary-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
@@ -19,16 +19,16 @@ const ExperienceComponent: React.FC<ExperienceProps> = ({ experiences, ui }) => 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white"
+            className="section-title"
           >
-            Work <span className="text-primary-500">Experience</span>
+            Work Experience
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-gray-500 dark:text-gray-400"
+            className="section-subtitle"
           >
             {ui.subtitle}
           </motion.p>
@@ -36,7 +36,7 @@ const ExperienceComponent: React.FC<ExperienceProps> = ({ experiences, ui }) => 
 
         <div className="max-w-4xl mx-auto relative">
           {/* Vertical Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary-500/50 via-primary-500/20 to-transparent md:-translate-x-1/2" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary-500/70 via-accent-500/30 to-transparent md:-translate-x-1/2" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -51,13 +51,13 @@ const ExperienceComponent: React.FC<ExperienceProps> = ({ experiences, ui }) => 
                 }`}
               >
                 {/* Dot */}
-                <div className="absolute left-4 md:left-1/2 top-8 w-4 h-4 rounded-full bg-primary-500 md:-translate-x-1/2 z-10 shadow-lg shadow-primary-500/50">
+                <div className="absolute left-4 md:left-1/2 top-8 w-4 h-4 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 md:-translate-x-1/2 z-10 shadow-lg shadow-primary-500/50">
                   <div className="absolute inset-0 rounded-full bg-primary-500 animate-ping opacity-20" />
                 </div>
 
                 {/* Content */}
                 <div className="w-full md:w-1/2 pl-12 md:pl-0 md:px-10">
-                  <div className="p-6 md:p-8 rounded-2xl bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] hover:border-primary-500/30 transition-all duration-300 group">
+                  <div className="p-6 md:p-8 rounded-2xl card transition-all duration-300 group">
                     {exp.isCurrent && (
                       <span className="inline-block px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-500/10 border border-primary-200 dark:border-primary-500/30 text-primary-500 text-xs font-bold mb-4 uppercase tracking-widest">
                         {ui.currentBadge}

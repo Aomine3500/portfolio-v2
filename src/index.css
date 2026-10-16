@@ -8,7 +8,7 @@
     --foreground: 0 0% 5%;
   }
   .dark {
-    --background: 0 0% 4%;
+    --background: 228 58% 10%;
     --foreground: 0 0% 95%;
   }
 }
@@ -18,12 +18,12 @@ html {
 }
 
 body {
-  @apply bg-white text-gray-900 transition-colors duration-300;
+  @apply bg-slate-50 text-gray-900 transition-colors duration-300;
   font-family: 'Inter', sans-serif;
 }
 
 .dark body {
-  @apply bg-[#0a0a0f] text-gray-100;
+  @apply bg-navy-900 text-gray-100;
 }
 
 /* Custom scrollbar */
@@ -32,15 +32,12 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-[#0a0a0f];
+  @apply bg-gray-100 dark:bg-navy-900;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary-500 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary-600;
+  background: linear-gradient(180deg, #3b82f6, #f43f5e);
+  border-radius: 9999px;
 }
 
 /* Selection */
@@ -57,31 +54,112 @@ body {
   animation: blink 1s step-end infinite;
 }
 
-/* Orange glow effect for images */
-.orange-glow {
-  box-shadow: 0 0 40px rgba(249, 115, 22, 0.4), 0 0 80px rgba(249, 115, 22, 0.15);
+/* Blue / pink glow for images */
+.glow-ring {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.45), 0 0 90px rgba(236, 72, 153, 0.2);
 }
 
-.orange-glow-lg {
-  box-shadow: 0 0 60px rgba(249, 115, 22, 0.5), 0 0 120px rgba(249, 115, 22, 0.2);
+.glow-ring-lg {
+  box-shadow: 0 0 60px rgba(59, 130, 246, 0.55), 0 0 120px rgba(236, 72, 153, 0.25);
 }
 
-/* Light mode glow */
-.light .orange-glow {
-  box-shadow: 0 0 30px rgba(249, 115, 22, 0.3), 0 0 60px rgba(249, 115, 22, 0.1);
+.light .glow-ring {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3), 0 0 60px rgba(236, 72, 153, 0.12);
 }
 
 /* Gradient text */
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-accent-500 to-rose-500;
 }
 
-/* Card glass effect - dark */
-.glass-card {
-  @apply bg-white/[0.03] backdrop-blur-sm border border-white/[0.06];
-}
+@layer components {
+  /* Section backgrounds: plain navy, and the alternate navy → wine gradient */
+  .section-base {
+    @apply bg-slate-50 dark:bg-navy-900;
+  }
 
-/* Card glass effect - light override via Tailwind dark: classes in components */
+  .section-alt {
+    @apply bg-white;
+  }
+
+  .dark .section-alt {
+    background: linear-gradient(110deg, #0f1633 0%, #141b3d 55%, #2a1a3f 100%);
+  }
+
+  /* Card with a thin blue → pink border and a soft glow on hover */
+  .card {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(#ffffff, #ffffff) padding-box,
+      linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(236, 72, 153, 0.35)) border-box;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .dark .card {
+    background:
+      linear-gradient(160deg, rgba(25, 34, 78, 0.95), rgba(16, 22, 52, 0.95)) padding-box,
+      linear-gradient(135deg, rgba(59, 130, 246, 0.55), rgba(236, 72, 153, 0.55)) border-box;
+  }
+
+  .card:hover {
+    box-shadow: 0 0 28px rgba(59, 130, 246, 0.22), 0 0 48px rgba(236, 72, 153, 0.14);
+  }
+
+  /* Gradient pill button */
+  .btn-gradient {
+    @apply text-white font-semibold rounded-full transition-all duration-300;
+    background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #f43f5e 100%);
+    background-size: 200% 100%;
+    box-shadow: 0 8px 24px -8px rgba(59, 130, 246, 0.6);
+  }
+
+  .btn-gradient:hover {
+    background-position: 100% 0;
+    box-shadow: 0 10px 30px -6px rgba(236, 72, 153, 0.55);
+  }
+
+  /* Outlined pill with a gradient border */
+  .btn-outline {
+    @apply font-semibold rounded-full transition-all duration-300 text-primary-600 dark:text-white;
+    border: 1.5px solid transparent;
+    background:
+      linear-gradient(#ffffff, #ffffff) padding-box,
+      linear-gradient(90deg, #3b82f6, #f43f5e) border-box;
+  }
+
+  .dark .btn-outline {
+    background:
+      linear-gradient(#0f1633, #0f1633) padding-box,
+      linear-gradient(90deg, #3b82f6, #f43f5e) border-box;
+  }
+
+  .btn-outline:hover {
+    box-shadow: 0 0 22px rgba(59, 130, 246, 0.35);
+  }
+
+  /* Pill-shaped form fields */
+  .field {
+    @apply w-full px-5 py-3.5 rounded-full bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all;
+  }
+
+  .dark .field {
+    @apply bg-navy-800/80 border-primary-500/25 text-white placeholder-gray-500;
+  }
+
+  /* Small icon chip used in cards */
+  .icon-chip {
+    @apply flex items-center justify-center rounded-xl text-primary-500 dark:text-primary-400 bg-primary-50 dark:bg-primary-500/10 border border-primary-100 dark:border-primary-500/25 transition-all duration-300;
+  }
+
+  /* Section headings */
+  .section-title {
+    @apply text-3xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white;
+  }
+
+  .section-subtitle {
+    @apply text-base md:text-lg text-gray-500 dark:text-gray-300/80 max-w-xl mx-auto;
+  }
+}
 
 /* Progress bar animation */
 @keyframes progressFill {
@@ -105,7 +183,7 @@ body {
 /* Subtle grid background */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(249, 115, 22, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(249, 115, 22, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
 }

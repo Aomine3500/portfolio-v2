@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Smartphone, Brain, ShieldCheck, Mic, ChevronRight, MessageSquare, Lock, Globe, ExternalLink } from 'lucide-react';
+import { X, Smartphone, Brain, ShieldCheck, Mic, ChevronRight, MessageSquare, Lock, Globe, ExternalLink, Play } from 'lucide-react';
 import { content } from '../constants';
 import { Language } from '../App';
 
@@ -53,14 +53,14 @@ const MindScreenDetails: React.FC<Props> = ({ language, onClose }) => {
           animate={{ y: 0, opacity: 1, scale: 1 }}
           exit={{ y: 20, opacity: 0, scale: 0.95 }}
           transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          className="bg-white dark:bg-[#0e0e14] w-full max-w-5xl min-h-[90vh] rounded-3xl overflow-hidden shadow-2xl overflow-y-auto flex flex-col relative my-auto cursor-default border border-gray-200 dark:border-white/10"
+          className="bg-white dark:bg-navy-800 w-full max-w-5xl min-h-[90vh] rounded-3xl overflow-hidden shadow-2xl overflow-y-auto flex flex-col relative my-auto cursor-default border border-gray-200 dark:border-primary-500/25"
           onClick={e => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-white/80 dark:bg-[#0e0e14]/80 backdrop-blur-md border-b border-gray-100 dark:border-white/10">
+          <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-white/80 dark:bg-navy-800/85 backdrop-blur-md border-b border-gray-100 dark:border-white/10">
             <div className="flex items-center gap-3">
               <img src="/mindscreen/icon.png" alt="Mind Screen Logo" className="w-10 h-10 object-contain" />
-              <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
+              <h2 className="text-2xl font-bold bg-gradient-to-r from-primary-500 via-violet-500 to-accent-500 bg-clip-text text-transparent">
                 {projectInfo.title}
               </h2>
             </div>
@@ -85,10 +85,15 @@ const MindScreenDetails: React.FC<Props> = ({ language, onClose }) => {
                   <div>
                     {/* Coming soon badges */}
                     <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-200 dark:border-emerald-500/20">
-                        <Smartphone size={12} />
-                        Android — {ui.comingSoon}
-                      </span>
+                      <a
+                        href={projectInfo.playStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-200 dark:border-emerald-500/20 hover:bg-emerald-100 dark:hover:bg-emerald-500/20 transition-colors"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        Android — {ui.androidAvailable}
+                      </a>
                       <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold border border-blue-200 dark:border-blue-500/20">
                         <Smartphone size={12} />
                         iOS — {ui.comingSoon}
@@ -125,10 +130,20 @@ const MindScreenDetails: React.FC<Props> = ({ language, onClose }) => {
 
                 <div className="pt-2 flex gap-3 flex-wrap items-center">
                   <a
+                    href={projectInfo.playStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm bg-emerald-500 text-white shadow-lg shadow-emerald-500/25 hover:bg-emerald-600 transition-all"
+                  >
+                    <Play size={16} className="flex-shrink-0 fill-current" />
+                    {ui.playStoreBtnLabel}
+                    <ExternalLink size={14} className="flex-shrink-0 opacity-80" />
+                  </a>
+                  <a
                     href={projectInfo.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-gradient-to-r from-blue-500 to-violet-500 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:brightness-110 transition-all"
+                    className="flex items-center gap-2 px-5 py-2.5 text-sm btn-gradient"
                   >
                     <Globe size={16} className="flex-shrink-0" />
                     {ui.websiteBtnLabel}
@@ -137,7 +152,7 @@ const MindScreenDetails: React.FC<Props> = ({ language, onClose }) => {
                   <button
                     disabled
                     title={ui.demoUnavailableHint}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-gray-100 dark:bg-white/5 text-gray-400 dark:text-gray-600 border border-gray-200 dark:border-white/10 cursor-not-allowed select-none opacity-70"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm bg-gray-100 dark:bg-white/5 text-gray-400 dark:text-gray-600 border border-gray-200 dark:border-white/10 cursor-not-allowed select-none opacity-70"
                   >
                     <Lock size={15} className="flex-shrink-0" />
                     <MessageSquare size={16} className="flex-shrink-0" />
@@ -160,7 +175,7 @@ const MindScreenDetails: React.FC<Props> = ({ language, onClose }) => {
                     transition={{ delay: idx * 0.1 }}
                     className="flex items-start gap-3"
                   >
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center flex-shrink-0 shadow-md shadow-blue-500/20">
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 via-violet-500 to-accent-500 flex items-center justify-center flex-shrink-0 shadow-md shadow-blue-500/20">
                       <Icon size={16} className="text-white" />
                     </div>
                     <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed pt-1">{text}</p>
@@ -185,7 +200,7 @@ const MindScreenDetails: React.FC<Props> = ({ language, onClose }) => {
                     className="p-5 rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-100 dark:border-white/[0.06] hover:border-violet-300 dark:hover:border-violet-500/30 transition-all group"
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="px-2.5 py-1 rounded-lg bg-gradient-to-r from-blue-500 to-violet-500 text-white text-xs font-bold">
+                      <span className="px-2.5 py-1 rounded-lg bg-gradient-to-r from-primary-500 via-violet-500 to-accent-500 text-white text-xs font-bold">
                         {a.scale}
                       </span>
                       <span className="font-bold text-gray-900 dark:text-white text-sm group-hover:text-violet-500 transition-colors">{a.domain}</span>
@@ -208,7 +223,7 @@ const MindScreenDetails: React.FC<Props> = ({ language, onClose }) => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 {ui.steps.map((step, idx) => (
                   <div key={idx} className="relative p-5 rounded-2xl bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-500/5 dark:to-violet-500/5 border border-blue-100 dark:border-violet-500/10 text-center">
-                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-violet-500 text-white font-bold text-sm flex items-center justify-center mx-auto mb-3 shadow-lg shadow-blue-500/25">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary-500 via-violet-500 to-accent-500 text-white font-bold text-sm flex items-center justify-center mx-auto mb-3 shadow-lg shadow-blue-500/25">
                       {idx + 1}
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-300 font-medium leading-snug">{step}</p>

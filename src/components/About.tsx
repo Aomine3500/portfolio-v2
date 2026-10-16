@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Server, Laptop, Bot } from 'lucide-react';
+import { Code, Server, Laptop, Bot, ArrowRight } from 'lucide-react';
 import { AppContent, UIContent } from '../types';
 import { motion } from 'framer-motion';
 
@@ -17,82 +17,48 @@ const About: React.FC<AboutProps> = ({ data, ui }) => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-white dark:bg-[#0e0e14] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary-500/5 rounded-full blur-[150px] pointer-events-none" />
+    <section id="about" className="py-24 section-alt relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent-500/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4">
-            {ui.title.split(' ').map((word, i) => (
-              <span key={i}>
-                {i === ui.title.split(' ').length - 1 ? (
-                  <span className="text-primary-500">{word}</span>
-                ) : (
-                  <span className="text-gray-900 dark:text-white">{word} </span>
-                )}
-              </span>
-            ))}
-          </h2>
-        </motion.div>
-
         {/* Profile + Description */}
-        <div className="flex flex-col items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20 max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative mb-8"
+            className="relative mx-auto w-full max-w-md"
           >
-            <div className="absolute -inset-3 rounded-full bg-gradient-to-b from-primary-500/30 to-transparent blur-xl animate-pulse-glow" />
-            <div className="absolute -inset-0.5 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 opacity-70" />
-            <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden orange-glow">
+            <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-primary-500/40 to-accent-500/40 blur-2xl animate-pulse-glow" />
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden card glow-ring">
               <img
                 src={data.heroImage}
                 alt={data.name}
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(data.name)}&background=f97316&color=fff&size=256`;
+                  target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(data.name)}&background=3b82f6&color=fff&size=256`;
                 }}
               />
             </div>
           </motion.div>
 
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+            className="text-center lg:text-left"
           >
-            {data.title}
-          </motion.h3>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl text-center mb-8"
-          >
-            {data.about}
-          </motion.p>
-
-          <motion.a
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            href="#contact"
-            className="px-8 py-3 rounded-full bg-primary-500 text-white font-bold hover:bg-primary-600 transition-all shadow-lg shadow-primary-500/25"
-          >
-            Hire Me
-          </motion.a>
+            <h2 className="section-title">{ui.title}</h2>
+            <h3 className="text-xl font-semibold text-gradient mb-5 inline-block">{data.title}</h3>
+            <p className="text-gray-500 dark:text-gray-300/80 leading-relaxed mb-8">
+              {data.about}
+            </p>
+            <a href="#contact" className="btn-gradient inline-flex items-center gap-2 px-7 py-3">
+              Hire Me
+              <ArrowRight size={16} />
+            </a>
+          </motion.div>
         </div>
 
         {/* Specialty Cards */}
@@ -105,13 +71,13 @@ const About: React.FC<AboutProps> = ({ data, ui }) => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 * index }}
               whileHover={{ y: -8 }}
-              className="p-8 rounded-2xl bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] hover:border-primary-500/30 transition-all duration-300 group"
+              className="p-8 rounded-2xl card text-center group"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary-50 dark:bg-primary-500/10 border border-primary-100 dark:border-primary-500/20 flex items-center justify-center mb-6 group-hover:bg-primary-500 group-hover:border-primary-500 transition-all duration-300">
-                <card.icon size={28} className="text-primary-500 group-hover:text-white transition-colors" />
+              <div className="w-14 h-14 mx-auto icon-chip mb-6 group-hover:bg-primary-500 group-hover:border-primary-500 dark:group-hover:bg-primary-500">
+                <card.icon size={28} className="group-hover:text-white transition-colors" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{card.title}</h3>
-              <p className="text-gray-500">{card.description}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-300/70 leading-relaxed">{card.description}</p>
             </motion.div>
           ))}
         </div>
@@ -130,8 +96,8 @@ const About: React.FC<AboutProps> = ({ data, ui }) => {
             { value: '10+', label: 'Technologies' },
             { value: '100%', label: 'Dedication' },
           ].map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-3xl md:text-4xl font-extrabold text-primary-500 mb-2">{stat.value}</div>
+            <div key={index} className="text-center p-6 rounded-2xl card">
+              <div className="text-3xl md:text-4xl font-extrabold text-gradient mb-2 inline-block">{stat.value}</div>
               <div className="text-sm font-medium text-gray-500 uppercase tracking-widest">{stat.label}</div>
             </div>
           ))}

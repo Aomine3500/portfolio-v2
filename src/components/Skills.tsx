@@ -27,8 +27,8 @@ const Skills: React.FC<SkillsProps> = ({ categories, ui }) => {
     : 'No skills found matching your search.';
 
   return (
-    <section id="skills" className="py-24 bg-gray-50 dark:bg-[#0a0a0f] relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary-500/5 rounded-full blur-[150px] pointer-events-none" />
+    <section id="skills" className="py-24 section-alt relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary-500/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -37,10 +37,10 @@ const Skills: React.FC<SkillsProps> = ({ categories, ui }) => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white">
-            My <span className="text-primary-500">Skills</span>
+          <h2 className="section-title">
+            My Skills
           </h2>
-          <p className="text-gray-500 dark:text-gray-400 text-lg">{ui.subtitle}</p>
+          <p className="section-subtitle">{ui.subtitle}</p>
         </motion.div>
 
         {/* Search Bar */}
@@ -72,10 +72,10 @@ const Skills: React.FC<SkillsProps> = ({ categories, ui }) => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
-                    className="p-8 rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06]"
+                    className="p-8 rounded-2xl card"
                   >
                     <div className="flex items-center gap-3 mb-8">
-                      <div className="w-1.5 h-8 rounded-full bg-primary-500" />
+                      <div className="w-1.5 h-8 rounded-full bg-gradient-to-b from-primary-500 to-accent-500" />
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white">{category.name}</h3>
                     </div>
 
@@ -100,7 +100,7 @@ const Skills: React.FC<SkillsProps> = ({ categories, ui }) => {
                                 whileInView={{ width: `${skill.level}%` }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 1.2, delay: skillIndex * 0.05, ease: "easeOut" }}
-                                className="h-full rounded-full bg-gradient-to-r from-primary-600 to-primary-400"
+                                className="h-full rounded-full bg-gradient-to-r from-primary-500 via-violet-500 to-accent-500"
                               />
                             </div>
                           </motion.div>

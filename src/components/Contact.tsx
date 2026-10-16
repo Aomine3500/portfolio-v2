@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Linkedin, Github, Send, CheckCircle, Facebook, Ale
 import emailjs from '@emailjs/browser';
 import { ContactInfo, AppContent, UIContent } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
+import XIcon from './XIcon';
 
 const EMAILJS_CONFIG = {
   SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || "",
@@ -27,9 +28,10 @@ interface ContactProps {
   personalInfo: AppContent['personalInfo'];
   prefillMessage?: string;
   onPrefillConsumed?: () => void;
+  navItems: UIContent['nav'];
 }
 
-const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefillMessage, onPrefillConsumed }) => {
+const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefillMessage, onPrefillConsumed, navItems }) => {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [copiedText, setCopiedText] = useState<string | null>(null);
@@ -131,11 +133,12 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
     { name: "LinkedIn", url: contactInfo.linkedin, icon: Linkedin },
     { name: "GitHub", url: contactInfo.github, icon: Github },
     { name: "Facebook", url: contactInfo.facebook, icon: Facebook },
+    { name: "X", url: contactInfo.twitter, icon: XIcon },
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gray-50 dark:bg-[#0e0e14] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary-500/5 rounded-full blur-[150px] pointer-events-none" />
+    <section id="contact" className="pt-24 section-base relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary-500/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
@@ -143,16 +146,16 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white"
+            className="section-title"
           >
-            Contact <span className="text-primary-500">Me</span>
+            Contact Me
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto"
+            className="section-subtitle"
           >
             {ui.subtitle}
           </motion.p>
@@ -185,7 +188,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
               />
             </div>
 
-            <div className="p-8 rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] relative group overflow-hidden">
+            <div className="p-8 rounded-2xl card relative group overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                 <button
                   onClick={() => copyToClipboard(contactInfo.address)}
@@ -195,7 +198,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
                 </button>
               </div>
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary-50 dark:bg-primary-500/10 border border-primary-100 dark:border-primary-500/20 text-primary-500 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 icon-chip flex-shrink-0">
                   <MapPin size={24} />
                 </div>
                 <div>
@@ -227,7 +230,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ y: -5 }}
-                        className="w-12 h-12 rounded-xl border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:border-primary-500 hover:text-primary-500 hover:bg-primary-500/10 transition-all"
+                        className="w-11 h-11 rounded-lg bg-primary-500 text-white flex items-center justify-center shadow-md shadow-primary-500/30 hover:bg-accent-500 transition-all"
                       >
                         <link.icon size={20} />
                       </motion.a>
@@ -243,7 +246,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="p-8 md:p-10 rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06]"
+            className="p-8 md:p-10 rounded-2xl card"
           >
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">{ui.formTitle}</h3>
             <form ref={form} onSubmit={handleSubmit} className="space-y-6">
@@ -254,7 +257,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
                     name="user_name"
                     required
                     maxLength={MAX_NAME_LENGTH}
-                    className="w-full px-5 py-4 bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl focus:outline-none focus:border-primary-500 transition-all text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600"
+                    className="field"
                     placeholder="Your Name"
                   />
                 </div>
@@ -264,7 +267,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
                     type="email"
                     name="user_email"
                     required
-                    className="w-full px-5 py-4 bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl focus:outline-none focus:border-primary-500 transition-all text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600"
+                    className="field"
                     placeholder="name@example.com"
                   />
                 </div>
@@ -278,15 +281,15 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
                   maxLength={MAX_MESSAGE_LENGTH}
                   value={messageValue}
                   onChange={(e) => setMessageValue(e.target.value)}
-                  className="w-full px-5 py-4 bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl focus:outline-none focus:border-primary-500 transition-all text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 resize-none"
+                  className="field !rounded-2xl resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
               <button
                 type="submit"
                 disabled={formStatus === 'submitting'}
-                className={`w-full py-4 rounded-xl font-bold text-white shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95 
-                ${formStatus === 'success' ? 'bg-emerald-500' : formStatus === 'error' ? 'bg-red-500' : 'bg-primary-500 hover:bg-primary-600 shadow-primary-500/25'} 
+                className={`w-full py-4 rounded-full font-bold text-white shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95 
+                ${formStatus === 'success' ? 'bg-emerald-500' : formStatus === 'error' ? 'bg-red-500' : 'btn-gradient'} 
                 `}
               >
                 {formStatus === 'idle' && <><Send size={20} /> {ui.sendBtn}</>}
@@ -299,20 +302,51 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
           </motion.div>
         </div>
 
-        {/* Footer */}
-        <div className="mt-24 pt-12 border-t border-gray-200 dark:border-white/[0.06] text-center">
-          <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} <span className="text-primary-500 font-bold">{personalInfo.name}</span>. {ui.footer}
-          </p>
-        </div>
       </div>
+
+      {/* Footer */}
+      <footer className="mt-24 border-t border-gray-200 dark:border-primary-500/15 bg-white/60 dark:bg-navy-950/60">
+        <div className="container mx-auto px-4 py-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <a href="#home" className="text-xl font-extrabold text-gradient">{personalInfo.name}</a>
+            <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500 dark:text-gray-300/80">
+              {navItems.map((item) => (
+                <a key={item.id} href={item.href} className="hover:text-primary-500 dark:hover:text-white transition-colors">
+                  {item.name}
+                </a>
+              ))}
+            </nav>
+            <div className="flex gap-2">
+              {socialLinks.map((link) => (
+                link.url && (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.name}
+                    className="w-8 h-8 rounded-md bg-primary-500 text-white flex items-center justify-center hover:bg-accent-500 transition-colors"
+                  >
+                    <link.icon size={15} />
+                  </a>
+                )
+              ))}
+            </div>
+          </div>
+          <div className="mt-8 pt-6 border-t border-gray-200 dark:border-white/[0.06] text-center">
+            <p className="text-gray-500 dark:text-gray-400 text-sm">
+              &copy; {new Date().getFullYear()} {personalInfo.name} | {ui.footer}
+            </p>
+          </div>
+        </div>
+      </footer>
     </section>
   );
 };
 
 const ContactCard = ({ icon: Icon, title, details, hrefPrefix, onCopy, isCopied }: any) => (
-  <div className="p-8 rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] group hover:border-primary-500/30 transition-all relative overflow-hidden">
-    <div className="w-12 h-12 rounded-xl bg-primary-50 dark:bg-primary-500/10 border border-primary-100 dark:border-primary-500/20 text-primary-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+  <div className="p-8 rounded-2xl card group transition-all relative overflow-hidden">
+    <div className="w-12 h-12 icon-chip mb-6 group-hover:scale-110 transition-transform">
       <Icon size={24} />
     </div>
     <h3 className="font-bold text-gray-900 dark:text-white mb-4">{title}</h3>

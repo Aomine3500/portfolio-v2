@@ -1,6 +1,6 @@
 import { AppContent } from '../types';
 
-const PROFILE_IMAGE_URL = "/Portfolio.jpg";
+const PROFILE_IMAGE_URL = "/portfolio_photo.jpg";
 const GAZTRACK_IMAGE_URL = "/gaztrack/gaztrack-pro-card.jpg";
 
 const contactInfoBase = {
@@ -231,7 +231,8 @@ export const content: { en: AppContent; fr: AppContent } = {
         types: ["Mobile"],
         image: "/mindscreen/icon.png",
         sourceUrl: "https://github.com/Aomine3500/mind_suite",
-        websiteUrl: "https://mind-screen.com/"
+        websiteUrl: "https://mind-screen.com/",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.mindscreen.app"
       }
     ],
     ui: {
@@ -329,6 +330,8 @@ export const content: { en: AppContent; fr: AppContent } = {
           "Instead of cold checkbox forms, users engage in a natural spoken dialogue with an LLM-orchestrated AI voice assistant. The system conducts structured assessments, interprets results against validated clinical thresholds, and automatically routes users to appropriate care pathways — all without human intervention in the triage loop."
         ],
         comingSoon: "Coming Soon",
+        androidAvailable: "Available now",
+        playStoreBtnLabel: "Get it on Google Play",
         inDevelopment: "In Development",
         highlightsTitle: "Why Mind Screen?",
         highlights: {
@@ -577,7 +580,8 @@ export const content: { en: AppContent; fr: AppContent } = {
         types: ["Mobile"],
         image: "/mindscreen/icon.png",
         sourceUrl: "https://github.com/Aomine3500/mind_suite",
-        websiteUrl: "https://mind-screen.com/"
+        websiteUrl: "https://mind-screen.com/",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.mindscreen.app"
       }
     ],
     ui: {
@@ -675,6 +679,8 @@ export const content: { en: AppContent; fr: AppContent } = {
           "Au lieu de formulaires impersonnels, l'utilisateur engage un dialogue naturel avec un assistant vocal IA orchestré par LLM. Le système conduit des évaluations structurées, interprète les résultats par rapport aux seuils cliniques validés, et oriente automatiquement les utilisateurs vers les parcours de soins appropriés — sans intervention humaine dans la boucle de triage."
         ],
         comingSoon: "Bientôt disponible",
+        androidAvailable: "Disponible",
+        playStoreBtnLabel: "Disponible sur Google Play",
         inDevelopment: "En développement",
         highlightsTitle: "Pourquoi Mind Screen ?",
         highlights: {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Globe, Moon, Sun } from 'lucide-react';
+import { Menu, X, Globe, Moon, Sun, Sparkles } from 'lucide-react';
 import { Language } from '../App';
 import { UIContent } from '../types';
 import { useTheme } from '../hooks/useTheme';
@@ -56,8 +56,8 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, ui }) => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 h-20 flex items-center ${
           isScrolled
-            ? 'bg-white/90 dark:bg-[#0a0a0f]/90 backdrop-blur-xl shadow-sm dark:shadow-none border-b border-gray-200 dark:border-white/[0.06]'
-            : 'bg-transparent'
+            ? 'bg-white/90 dark:bg-navy-900/85 backdrop-blur-xl shadow-sm dark:shadow-none border-b border-gray-200 dark:border-primary-500/15'
+            : 'bg-transparent border-b border-transparent dark:border-white/[0.04]'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, ui }) => {
               onClick={() => scrollToSection('home')}
               className="cursor-pointer"
             >
-              <span className="text-2xl font-extrabold text-primary-500 italic tracking-tight">Ahmed Znouda</span>
+              <span className="text-xl md:text-2xl font-extrabold text-gradient tracking-tight">Ahmed Znouda</span>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -78,7 +78,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, ui }) => {
                 onClick={() => scrollToSection('home')}
                 className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   activeSection === 'home'
-                    ? 'text-primary-500'
+                    ? 'text-primary-500 dark:text-primary-400'
                     : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
@@ -86,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, ui }) => {
                 {activeSection === 'home' && (
                   <motion.span
                     layoutId="navActive"
-                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary-500"
+                    className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-gradient-to-r from-primary-500 to-accent-500"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -97,7 +97,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, ui }) => {
                   onClick={() => scrollToSection(item.id)}
                   className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     activeSection === item.id
-                      ? 'text-primary-500'
+                      ? 'text-primary-500 dark:text-primary-400'
                       : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
@@ -105,7 +105,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, ui }) => {
                   {activeSection === item.id && (
                     <motion.span
                       layoutId="navActive"
-                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary-500"
+                      className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-gradient-to-r from-primary-500 to-accent-500"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -130,6 +130,13 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, ui }) => {
                 {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
               </button>
               <button
+                onClick={() => scrollToSection('contact')}
+                className="hidden lg:inline-flex items-center gap-1.5 ml-2 px-5 py-2 text-sm btn-outline"
+              >
+                <Sparkles size={15} />
+                Hire Me
+              </button>
+              <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors text-gray-500 dark:text-gray-400"
                 aria-label="Toggle menu"
@@ -148,7 +155,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, ui }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="fixed top-20 left-0 right-0 z-40 bg-white/95 dark:bg-[#0a0a0f]/95 backdrop-blur-xl border-b border-gray-200 dark:border-white/[0.06] overflow-hidden md:hidden"
+            className="fixed top-20 left-0 right-0 z-40 bg-white/95 dark:bg-navy-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-primary-500/15 overflow-hidden md:hidden"
           >
             <div className="p-4 space-y-1">
               <button

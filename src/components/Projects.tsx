@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, Layout, Smartphone, Laptop, Globe } from 'lucide-react';
+import { ExternalLink, Github, Layout, Smartphone, Laptop, Globe, Play } from 'lucide-react';
 import { Project, UIContent } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Language } from '../App';
@@ -41,8 +41,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
   ];
 
   return (
-    <section id="projects" className="py-24 bg-gray-50 dark:bg-[#0e0e14] relative overflow-hidden">
-      <div className="absolute top-0 left-1/3 w-[400px] h-[400px] bg-primary-500/5 rounded-full blur-[150px] pointer-events-none" />
+    <section id="projects" className="py-24 section-base relative overflow-hidden">
+      <div className="absolute top-0 left-1/3 w-[400px] h-[400px] bg-primary-500/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
@@ -50,16 +50,16 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white"
+            className="section-title"
           >
-            My <span className="text-primary-500">Portfolio</span>
+            My Portfolio
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-gray-500 dark:text-gray-400 mb-12"
+            className="section-subtitle mb-12"
           >
             {ui.subtitle}
           </motion.p>
@@ -73,8 +73,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                 onClick={() => setFilter(btn.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                   filter === btn.id
-                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25'
-                    : 'bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] text-gray-500 dark:text-gray-400 hover:text-primary-500 hover:border-primary-500/30'
+                    ? 'btn-gradient'
+                    : 'card text-gray-500 dark:text-gray-400 hover:text-primary-500'
                 }`}
               >
                 <btn.icon size={18} />
@@ -99,7 +99,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                 animate={{ opacity: 1, scale: 1, x: 0 }}
                 exit={{ opacity: 0, scale: 0.9, x: -20 }}
                 transition={{ duration: 0.4 }}
-                className="group rounded-2xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] overflow-hidden hover:border-primary-500/30 transition-all duration-500 flex flex-col cursor-pointer flex-shrink-0 snap-center w-[82vw] sm:w-[350px] md:w-[420px] h-[520px] shadow-sm hover:shadow-xl dark:shadow-none"
+                className="group rounded-2xl card overflow-hidden transition-all duration-500 flex flex-col cursor-pointer flex-shrink-0 snap-center w-[82vw] sm:w-[350px] md:w-[420px] h-[520px] shadow-sm hover:shadow-xl dark:shadow-none"
                 onClick={() => {
                   if (project.title === 'Gaztrack Pro') setSelectedProject('Gaztrack Pro');
                   if (project.title === 'Mind Screen') setSelectedProject('Mind Screen');
@@ -108,7 +108,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                 {project.title === 'Mind Screen' ? (
                   /* ── Special Mind Screen card ── */
                   <>
-                    <div className="relative h-60 rounded-t-2xl overflow-hidden bg-gradient-to-br from-blue-50 via-violet-50 to-indigo-100 dark:from-blue-900/20 dark:via-violet-900/20 dark:to-indigo-900/20 flex items-center justify-center">
+                    <div className="relative h-60 rounded-t-2xl overflow-hidden bg-gradient-to-br from-blue-50 via-violet-50 to-pink-50 dark:from-primary-900/30 dark:via-navy-700 dark:to-accent-700/20 flex items-center justify-center">
                       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.15)_0%,transparent_70%)]" />
                       <motion.img
                         src={project.image}
@@ -125,20 +125,29 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                       </div>
                       {/* In Development badge */}
                       <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                        <span className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-violet-500 text-white text-xs font-bold shadow-lg shadow-violet-500/30 whitespace-nowrap">
+                        <span className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-primary-500 via-violet-500 to-accent-500 text-white text-xs font-bold shadow-lg shadow-primary-500/30 whitespace-nowrap">
                           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                          {mindScreenUi.inDevelopment}
+                          Android — {mindScreenUi.androidAvailable}
                         </span>
                       </div>
                     </div>
                     <div className="p-8 flex flex-col flex-1 rounded-b-2xl">
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-violet-500 transition-colors">
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-400 transition-colors">
                         {project.title}
                       </h3>
                       <div className="flex flex-wrap gap-1.5 mb-4">
-                        <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
-                          Android — {mindScreenUi.comingSoon}
-                        </span>
+                        {project.playStoreUrl && (
+                          <a
+                            href={project.playStoreUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 hover:bg-emerald-100 dark:hover:bg-emerald-500/20 transition-colors"
+                          >
+                            <Play size={11} />
+                            Android — {mindScreenUi.androidAvailable}
+                          </a>
+                        )}
                         <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20">
                           iOS — {mindScreenUi.comingSoon}
                         </span>
@@ -170,7 +179,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                       )}
                       <div className="flex flex-wrap gap-2">
                         {project.techStack.map((tech) => (
-                          <span key={tech} className="px-3 py-1.5 rounded-lg bg-violet-50 dark:bg-violet-500/10 border border-violet-100 dark:border-violet-500/20 text-violet-600 dark:text-violet-400 text-xs font-semibold">
+                          <span key={tech} className="px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-500/10 border border-primary-100 dark:border-primary-500/25 text-primary-600 dark:text-primary-300 text-xs font-medium">
                             {tech}
                           </span>
                         ))}
@@ -191,19 +200,19 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                           target.src = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800";
                         }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 dark:from-[#0a0a0f] via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 dark:from-navy-900 via-transparent to-transparent" />
                       <div className="absolute inset-0 bg-primary-500/0 group-hover:bg-primary-500/10 transition-colors duration-300" />
 
                       <div className="absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="flex gap-3 w-full">
                           {project.demoUrl && (
-                            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 bg-primary-500 text-white py-2.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary-600 transition-colors" onClick={(e) => e.stopPropagation()}>
+                            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 btn-gradient py-2.5 text-sm flex items-center justify-center gap-2" onClick={(e) => e.stopPropagation()}>
                               <ExternalLink size={16} />
                               {ui.demoBtn}
                             </a>
                           )}
                           {project.sourceUrl && (
-                            <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex-1 bg-white/10 backdrop-blur-md text-white py-2.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/20 transition-colors border border-white/20" onClick={(e) => e.stopPropagation()}>
+                            <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex-1 bg-white/10 backdrop-blur-md text-white py-2.5 rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/20 transition-colors border border-white/20" onClick={(e) => e.stopPropagation()}>
                               <Github size={16} />
                               {ui.sourceBtn}
                             </a>
@@ -238,7 +247,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                         {project.techStack.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1.5 rounded-lg bg-primary-50 dark:bg-primary-500/10 border border-primary-100 dark:border-primary-500/20 text-primary-600 dark:text-primary-400 text-xs font-semibold"
+                            className="px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-500/10 border border-primary-100 dark:border-primary-500/25 text-primary-600 dark:text-primary-300 text-xs font-medium"
                           >
                             {tech}
                           </span>

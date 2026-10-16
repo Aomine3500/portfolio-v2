@@ -79,12 +79,12 @@ const GaztrackProDetails: React.FC<Props> = ({ language, onClose, onRequestDemo 
         animate={{ y: 0, opacity: 1, scale: 1 }}
         exit={{ y: 20, opacity: 0, scale: 0.95 }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-        className="bg-white dark:bg-[#0e0e14] w-full max-w-6xl min-h-[90vh] rounded-3xl overflow-hidden shadow-2xl overflow-y-auto flex flex-col relative my-auto cursor-default border border-gray-200 dark:border-white/10"
+        className="bg-white dark:bg-navy-800 w-full max-w-6xl min-h-[90vh] rounded-3xl overflow-hidden shadow-2xl overflow-y-auto flex flex-col relative my-auto cursor-default border border-gray-200 dark:border-primary-500/25"
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-white/80 dark:bg-[#0e0e14]/80 backdrop-blur-md border-b border-gray-100 dark:border-white/10">
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-primary-500 to-indigo-500 bg-clip-text text-transparent">
+        <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-white/80 dark:bg-navy-800/85 backdrop-blur-md border-b border-gray-100 dark:border-white/10">
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
             {projectInfo.title}
           </h2>
           <button

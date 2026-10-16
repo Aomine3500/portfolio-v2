@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local tooling / scratch
+.claude/agent-memory/
+.kilo/
+.history/
+
+# Design references and unused photos (not part of the site)
+/modern_portfolio.webp
+/main_photo.jpg

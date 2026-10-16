@@ -38,6 +38,7 @@ export interface Project {
   demoUrl?: string;
   sourceUrl?: string;
   websiteUrl?: string;
+  playStoreUrl?: string;
   type: 'Mobile' | 'Web' | 'Desktop' | 'Mobile & Web';
   types?: string[];
 }
@@ -129,6 +130,8 @@ export interface UIContent {
     tagline: string;
     description: string[];
     comingSoon: string;
+    androidAvailable: string;
+    playStoreBtnLabel: string;
     inDevelopment: string;
     highlightsTitle: string;
     highlights: {

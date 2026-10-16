@@ -41,7 +41,7 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0a0f] text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 dark:bg-navy-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
       <Navbar language={language} setLanguage={setLanguage} ui={data.ui} />
       <main>
         <Hero data={data.personalInfo} ui={data.ui.hero} />
@@ -60,6 +60,7 @@ const AppContent: React.FC = () => {
         contactInfo={data.contactInfo}
         ui={data.ui.contact}
         personalInfo={data.personalInfo}
+        navItems={data.ui.nav}
         prefillMessage={prefillMessage}
         onPrefillConsumed={() => setPrefillMessage('')}
       />
@@ -71,7 +72,7 @@ const AppContent: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 bg-primary-500 text-white p-3 rounded-full shadow-lg shadow-primary-500/25 hover:bg-primary-600 transition-colors z-50 group"
+            className="fixed bottom-8 right-8 btn-gradient p-3 z-50 group"
             aria-label="Back to top"
           >
             <ArrowUp size={24} className="group-hover:-translate-y-1 transition-transform" />

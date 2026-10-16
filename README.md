@@ -95,7 +95,7 @@ Headers de sécurité configurés : **CSP**, **HSTS**, **X-Content-Type-Options*
 portfolio-v2/
 │
 ├── public/                          # Assets statiques
-│   ├── Portfolio.jpg                # Photo de profil
+│   ├── portfolio_photo.jpg          # Photo de profil
 │   ├── mindscreen/
 │   │   ├── icon.png                 # Icône de l'application Mind Screen
 │   │   └── logo.png                 # Logo complet (avec nom) Mind Screen
