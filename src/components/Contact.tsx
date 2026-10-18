@@ -192,7 +192,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
               <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                 <button
                   onClick={() => copyToClipboard(contactInfo.address)}
-                  className="p-2 rounded-xl bg-gray-100 dark:bg-white/5 text-gray-500 hover:text-primary-500 transition-colors"
+                  className="gloss p-2 rounded-xl bg-gray-100 dark:bg-white/5 text-gray-500 hover:text-primary-500 transition-colors"
                 >
                   <Copy size={16} />
                 </button>
@@ -230,7 +230,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ y: -5 }}
-                        className="w-11 h-11 rounded-lg bg-primary-500 text-white flex items-center justify-center shadow-md shadow-primary-500/30 hover:bg-accent-500 transition-all"
+                        className="gloss w-11 h-11 rounded-lg bg-primary-500 text-white flex items-center justify-center shadow-md shadow-primary-500/30 hover:bg-accent-500 transition-all"
                       >
                         <link.icon size={20} />
                       </motion.a>
@@ -288,8 +288,8 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, ui, personalInfo, prefil
               <button
                 type="submit"
                 disabled={formStatus === 'submitting'}
-                className={`w-full py-4 rounded-full font-bold text-white shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95 
-                ${formStatus === 'success' ? 'bg-emerald-500' : formStatus === 'error' ? 'bg-red-500' : 'btn-gradient'} 
+                className={`w-full py-4 rounded-full font-bold text-white transition-all flex items-center justify-center gap-2 active:scale-95 
+                ${formStatus === 'success' ? 'gloss bg-emerald-500 shadow-xl' : formStatus === 'error' ? 'gloss bg-red-500 shadow-xl' : 'btn-gradient'} 
                 `}
               >
                 {formStatus === 'idle' && <><Send size={20} /> {ui.sendBtn}</>}
@@ -358,7 +358,7 @@ const ContactCard = ({ icon: Icon, title, details, hrefPrefix, onCopy, isCopied 
           </a>
           <button
             onClick={() => onCopy(detail)}
-            className="p-1.5 rounded-lg bg-gray-100 dark:bg-white/5 text-gray-400 hover:text-primary-500 opacity-0 group-hover/item:opacity-100 transition-all"
+            className="gloss p-1.5 rounded-lg bg-gray-100 dark:bg-white/5 text-gray-400 hover:text-primary-500 opacity-0 group-hover/item:opacity-100 transition-all"
             title="Copy"
           >
             <Copy size={14} />

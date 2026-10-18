@@ -83,13 +83,13 @@ const GaztrackProDetails: React.FC<Props> = ({ language, onClose, onRequestDemo 
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-white/80 dark:bg-navy-800/85 backdrop-blur-md border-b border-gray-100 dark:border-white/10">
+        <div className="sticky top-0 z-10 flex items-center justify-between p-6 glass-bar">
           <h2 className="text-2xl font-bold bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
             {projectInfo.title}
           </h2>
           <button
             onClick={onClose}
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-white/5 dark:hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 font-medium"
+            className="gloss flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-white/5 dark:hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 font-medium"
           >
             <span className="hidden sm:inline">{ui.backBtn}</span>
             <X size={20} />
@@ -118,7 +118,7 @@ const GaztrackProDetails: React.FC<Props> = ({ language, onClose, onRequestDemo 
                <div className="pt-4 flex gap-4">
                   <button
                     onClick={() => { onRequestDemo(ui.demoMessage); onClose(); }}
-                    className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-transform hover:scale-105 shadow-lg shadow-primary-500/25"
+                    className="gloss bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-transform hover:scale-105 shadow-lg shadow-primary-500/25"
                   >
                     <MessageSquare size={20} />
                     {ui.demoBtnLabel}
@@ -197,7 +197,7 @@ const GaztrackProDetails: React.FC<Props> = ({ language, onClose, onRequestDemo 
           {/* Close Button */}
           <button
             onClick={() => setLightboxOpen(null)}
-            className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 p-2 rounded-full transition-colors z-20"
+            className="absolute top-6 right-6 gloss text-white/70 hover:text-white bg-white/10 p-2 rounded-full transition-colors z-20"
           >
             <X size={24} />
           </button>
@@ -207,13 +207,13 @@ const GaztrackProDetails: React.FC<Props> = ({ language, onClose, onRequestDemo 
             <>
               <button
                 onClick={(e) => { e.stopPropagation(); navigateLightbox('prev'); }}
-                className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all z-20"
+                className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 gloss text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all z-20"
               >
                 <ChevronLeft size={32} />
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); navigateLightbox('next'); }}
-                className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all z-20"
+                className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 gloss text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all z-20"
               >
                 <ChevronRight size={32} />
               </button>

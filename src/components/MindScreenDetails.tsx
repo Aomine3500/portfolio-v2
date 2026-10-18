@@ -57,7 +57,7 @@ const MindScreenDetails: React.FC<Props> = ({ language, onClose }) => {
           onClick={e => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-white/80 dark:bg-navy-800/85 backdrop-blur-md border-b border-gray-100 dark:border-white/10">
+          <div className="sticky top-0 z-10 flex items-center justify-between p-6 glass-bar">
             <div className="flex items-center gap-3">
               <img src="/mindscreen/icon.png" alt="Mind Screen Logo" className="w-10 h-10 object-contain" />
               <h2 className="text-2xl font-bold bg-gradient-to-r from-primary-500 via-violet-500 to-accent-500 bg-clip-text text-transparent">
@@ -66,7 +66,7 @@ const MindScreenDetails: React.FC<Props> = ({ language, onClose }) => {
             </div>
             <button
               onClick={onClose}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-white/5 dark:hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 font-medium"
+              className="gloss flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-white/5 dark:hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 font-medium"
             >
               <span className="hidden sm:inline">{ui.backBtn}</span>
               <X size={20} />
@@ -133,7 +133,7 @@ const MindScreenDetails: React.FC<Props> = ({ language, onClose }) => {
                     href={projectInfo.playStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm bg-emerald-500 text-white shadow-lg shadow-emerald-500/25 hover:bg-emerald-600 transition-all"
+                    className="gloss flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm bg-emerald-500 text-white shadow-lg shadow-emerald-500/25 hover:bg-emerald-600 transition-all"
                   >
                     <Play size={16} className="flex-shrink-0 fill-current" />
                     {ui.playStoreBtnLabel}

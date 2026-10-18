@@ -19,6 +19,17 @@ export interface Education {
   details?: string;
 }
 
+export interface Certification {
+  id: number;
+  title: string;
+  issuer: string;
+  platform: string;
+  date: string;
+  hours?: string;
+  url: string;
+  featured?: boolean;
+}
+
 export interface Skill {
   name: string;
   level: number;
@@ -99,6 +110,9 @@ export interface UIContent {
     title: string;
     subtitle: string;
     badge: string;
+    certsTitle: string;
+    certsSubtitle: string;
+    verifyBtn: string;
   };
   contact: {
     title: string;
@@ -168,6 +182,7 @@ export interface AppContent {
   contactInfo: ContactInfo;
   experiences: Experience[];
   education: Education[];
+  certifications: Certification[];
   skillCategories: SkillCategory[];
   projects: Project[];
   ui: UIContent;

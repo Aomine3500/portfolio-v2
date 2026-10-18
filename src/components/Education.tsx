@@ -1,14 +1,18 @@
 import React from 'react';
-import { GraduationCap, MapPin, Calendar, Award } from 'lucide-react';
-import { Education, UIContent } from '../types';
+import { GraduationCap, MapPin, Calendar, Award, BadgeCheck, ExternalLink, Sparkles } from 'lucide-react';
+import { Certification, Education, UIContent } from '../types';
 import { motion } from 'framer-motion';
 
 interface EducationProps {
   education: Education[];
+  certifications: Certification[];
   ui: UIContent['education'];
 }
 
-const EducationComponent: React.FC<EducationProps> = ({ education, ui }) => {
+const EducationComponent: React.FC<EducationProps> = ({ education, certifications, ui }) => {
+  const featured = certifications.filter(c => c.featured);
+  const others = certifications.filter(c => !c.featured);
+
   return (
     <section id="education" className="py-24 section-alt relative overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary-500/10 rounded-full blur-[150px] pointer-events-none" />
@@ -51,6 +55,67 @@ const EducationComponent: React.FC<EducationProps> = ({ education, ui }) => {
                 <EducationCard key={edu.id} edu={edu} index={index + 3} />
               ))}
             </div>
+          )}
+
+          {/* AI & continuous learning certificates */}
+          {certifications.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-20"
+            >
+              <div className="text-center mb-10">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3 flex items-center justify-center gap-2">
+                  <Sparkles size={22} className="text-accent-500" />
+                  {ui.certsTitle}
+                </h3>
+                <p className="section-subtitle">{ui.certsSubtitle}</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                {featured.map((cert) => (
+                  <div key={cert.id} className="card rounded-2xl p-6 flex flex-col">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 icon-chip flex-shrink-0">
+                        <BadgeCheck size={20} />
+                      </div>
+                      <div className="text-xs leading-tight">
+                        <div className="font-bold text-gray-900 dark:text-white">{cert.issuer}</div>
+                        <div className="text-gray-500 dark:text-gray-400">via {cert.platform} · {cert.date}</div>
+                      </div>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-5 flex-1">{cert.title}</h4>
+                    <a
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-outline self-start inline-flex items-center gap-1.5 px-4 py-1.5 text-xs"
+                    >
+                      {ui.verifyBtn}
+                      <ExternalLink size={12} />
+                    </a>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap justify-center gap-3">
+                {others.map((cert) => (
+                  <a
+                    key={cert.id}
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card rounded-full px-4 py-2 inline-flex items-center gap-2 text-xs text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-white"
+                  >
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400">{cert.issuer}</span>
+                    <span>{cert.title}</span>
+                    {cert.hours && <span className="text-gray-400 dark:text-gray-500">· {cert.hours}</span>}
+                    <ExternalLink size={11} className="opacity-60" />
+                  </a>
+                ))}
+              </div>
+            </motion.div>
           )}
         </div>
       </div>

@@ -142,6 +142,15 @@ export const content: { en: AppContent; fr: AppContent } = {
         details: "Computer Sciences major."
       }
     ],
+    certifications: [
+      { id: 1, title: "Vibe Coding with Claude Code", issuer: "Scrimba", platform: "Coursera", date: "Oct 2026", url: "https://coursera.org/verify/D1B7ETNZGMEB", featured: true },
+      { id: 2, title: "AI for Brainstorming and Planning", issuer: "Google", platform: "Coursera", date: "Jul 2026", url: "https://coursera.org/verify/9O5WTKWYRGCI", featured: true },
+      { id: 3, title: "AI Fundamentals", issuer: "Google", platform: "Coursera", date: "Jul 2026", url: "https://coursera.org/verify/1CXPUUDKAI1J", featured: true },
+      { id: 4, title: "Introduction to Python for Developers", issuer: "DataCamp", platform: "DataCamp", date: "Apr 2026", hours: "3h", url: "/certificates/datacamp-python-for-developers.pdf" },
+      { id: 5, title: "Understanding Machine Learning", issuer: "DataCamp", platform: "DataCamp", date: "Apr 2026", hours: "2h", url: "/certificates/datacamp-understanding-machine-learning.pdf" },
+      { id: 6, title: "Introduction to AI for Work", issuer: "DataCamp", platform: "DataCamp", date: "Apr 2026", hours: "2h", url: "/certificates/datacamp-ai-for-work.pdf" },
+      { id: 7, title: "Understanding ChatGPT", issuer: "DataCamp", platform: "DataCamp", date: "Apr 2026", hours: "1h", url: "/certificates/datacamp-understanding-chatgpt.pdf" }
+    ],
     skillCategories: [
       {
         name: "AI & Automation",
@@ -286,7 +295,10 @@ export const content: { en: AppContent; fr: AppContent } = {
       education: {
         title: "Education & Certifications",
         subtitle: "Academic background and professional development",
-        badge: "Academic Path"
+        badge: "Academic Path",
+        certsTitle: "AI & Continuous Learning",
+        certsSubtitle: "Recent short courses that keep my AI and Python skills current",
+        verifyBtn: "Verify"
       },
       contact: {
         title: "Let's Work Together",
@@ -491,6 +503,15 @@ export const content: { en: AppContent; fr: AppContent } = {
         details: "Spécialité Sciences de l'Informatique."
       }
     ],
+    certifications: [
+      { id: 1, title: "Vibe Coding with Claude Code", issuer: "Scrimba", platform: "Coursera", date: "Oct. 2026", url: "https://coursera.org/verify/D1B7ETNZGMEB", featured: true },
+      { id: 2, title: "AI for Brainstorming and Planning", issuer: "Google", platform: "Coursera", date: "Juil. 2026", url: "https://coursera.org/verify/9O5WTKWYRGCI", featured: true },
+      { id: 3, title: "AI Fundamentals", issuer: "Google", platform: "Coursera", date: "Juil. 2026", url: "https://coursera.org/verify/1CXPUUDKAI1J", featured: true },
+      { id: 4, title: "Introduction to Python for Developers", issuer: "DataCamp", platform: "DataCamp", date: "Avr. 2026", hours: "3h", url: "/certificates/datacamp-python-for-developers.pdf" },
+      { id: 5, title: "Understanding Machine Learning", issuer: "DataCamp", platform: "DataCamp", date: "Avr. 2026", hours: "2h", url: "/certificates/datacamp-understanding-machine-learning.pdf" },
+      { id: 6, title: "Introduction to AI for Work", issuer: "DataCamp", platform: "DataCamp", date: "Avr. 2026", hours: "2h", url: "/certificates/datacamp-ai-for-work.pdf" },
+      { id: 7, title: "Understanding ChatGPT", issuer: "DataCamp", platform: "DataCamp", date: "Avr. 2026", hours: "1h", url: "/certificates/datacamp-understanding-chatgpt.pdf" }
+    ],
     skillCategories: [
       {
         name: "IA & Automatisation",
@@ -635,7 +656,10 @@ export const content: { en: AppContent; fr: AppContent } = {
       education: {
         title: "Éducation & Certifications",
         subtitle: "Parcours académique et développement professionnel",
-        badge: "Parcours Académique"
+        badge: "Parcours Académique",
+        certsTitle: "IA & Formation Continue",
+        certsSubtitle: "Formations courtes récentes pour garder mes compétences en IA et Python à jour",
+        verifyBtn: "Vérifier"
       },
       contact: {
         title: "Travaillons Ensemble",

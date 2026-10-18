@@ -31,3 +31,6 @@ dist-ssr
 # Design references and unused photos (not part of the site)
 /modern_portfolio.webp
 /main_photo.jpg
+
+# Certificate PDFs (not deployed yet)
+/public/certificates/

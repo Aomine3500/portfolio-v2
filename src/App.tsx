@@ -10,6 +10,7 @@ import Contact from "./components/Contact";
 import { content } from "./constants";
 import { ArrowUp } from "lucide-react";
 import { ThemeProvider } from "./hooks/useTheme";
+import { useGlossPointer } from "./hooks/useGlossPointer";
 import { motion, AnimatePresence } from "framer-motion";
 
 export type Language = "en" | "fr";
@@ -22,6 +23,7 @@ const AppContent: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [prefillMessage, setPrefillMessage] = useState<string>('');
   const data = content[language];
+  useGlossPointer();
 
   useEffect(() => {
     localStorage.setItem('language', language);
@@ -54,7 +56,7 @@ const AppContent: React.FC = () => {
             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
           }, 100);
         }} />
-        <Education education={data.education} ui={data.ui.education} />
+        <Education education={data.education} certifications={data.certifications} ui={data.ui.education} />
       </main>
       <Contact
         contactInfo={data.contactInfo}

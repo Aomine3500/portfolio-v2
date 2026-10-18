@@ -6,10 +6,78 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 5%;
+
+    /* Gloss tokens (light). "-solid" fills are the no-backdrop-filter fallback. */
+    --gloss-rim-hi: rgba(255, 255, 255, 0.95);
+    --gloss-rim-lo: rgba(30, 58, 138, 0.07);
+    --gloss-rim-spec: rgba(255, 255, 255, 0.9);
+    --gloss-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 45%);
+    --gloss-spec: rgba(96, 165, 250, 0.2);
+    --gloss-streak: rgba(59, 130, 246, 0.14);
+    --gloss-depth: 0 1px 2px rgba(30, 58, 138, 0.06), 0 6px 16px -8px rgba(30, 58, 138, 0.14), 0 22px 40px -26px rgba(30, 58, 138, 0.3);
+    --gloss-depth-hover: 0 1px 2px rgba(30, 58, 138, 0.08), 0 14px 30px -12px rgba(59, 130, 246, 0.3), 0 30px 60px -30px rgba(236, 72, 153, 0.32);
+    --gloss-depth-sm: 0 1px 2px rgba(30, 58, 138, 0.08), 0 4px 10px -4px rgba(30, 58, 138, 0.14);
+    --card-fill-solid: linear-gradient(160deg, #ffffff, #f8faff);
+    --card-fill-glass: linear-gradient(160deg, rgba(255, 255, 255, 0.8), rgba(246, 249, 255, 0.68));
+    --card-ring-a: rgba(59, 130, 246, 0.45);
+    --card-ring-b: rgba(236, 72, 153, 0.4);
+    --card-ring-fallback: inset 0 0 0 1px rgba(99, 102, 241, 0.25);
+    --outline-fallback: rgba(99, 102, 241, 0.6);
+    --outline-fill-solid: #ffffff;
+    --outline-fill-glass: rgba(255, 255, 255, 0.62);
+    --bar-fill-top-solid: rgba(255, 255, 255, 0.97);
+    --bar-fill-bottom-solid: rgba(248, 250, 255, 0.95);
+    --bar-fill-top-glass: rgba(255, 255, 255, 0.8);
+    --bar-fill-bottom-glass: rgba(248, 250, 255, 0.66);
+    --bar-edge: rgba(30, 58, 138, 0.08);
+    --bar-depth: 0 10px 30px -18px rgba(30, 58, 138, 0.35);
+    --pill-fill: rgba(59, 130, 246, 0.07);
+    --pill-edge: rgba(59, 130, 246, 0.14);
+    --field-fill: linear-gradient(180deg, #f3f6fd, #ffffff);
+    --field-edge: #e2e8f0;
+    --field-edge-hover: #c7d2fe;
+    --field-inset: rgba(30, 58, 138, 0.08);
+    --field-lip: rgba(255, 255, 255, 0.9);
+    --chip-sheen: rgba(255, 255, 255, 0.9);
+    --focus-ring: #2563eb;
   }
   .dark {
     --background: 228 58% 10%;
     --foreground: 0 0% 95%;
+
+    /* Gloss tokens (dark) */
+    --gloss-rim-hi: rgba(255, 255, 255, 0.09);
+    --gloss-rim-lo: rgba(0, 0, 0, 0.35);
+    --gloss-rim-spec: rgba(255, 255, 255, 0.55);
+    --gloss-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.065) 0%, rgba(255, 255, 255, 0) 45%);
+    --gloss-spec: rgba(165, 185, 255, 0.22);
+    --gloss-streak: rgba(255, 255, 255, 0.14);
+    --gloss-depth: 0 1px 1px rgba(0, 0, 0, 0.3), 0 10px 24px -12px rgba(0, 0, 0, 0.6), 0 26px 50px -30px rgba(3, 6, 20, 0.9);
+    --gloss-depth-hover: 0 1px 1px rgba(0, 0, 0, 0.3), 0 16px 34px -14px rgba(59, 130, 246, 0.38), 0 0 48px -10px rgba(236, 72, 153, 0.2);
+    --gloss-depth-sm: 0 1px 1px rgba(0, 0, 0, 0.3), 0 4px 12px -4px rgba(0, 0, 0, 0.45);
+    --card-fill-solid: linear-gradient(160deg, rgba(25, 34, 78, 0.95), rgba(16, 22, 52, 0.95));
+    --card-fill-glass: linear-gradient(160deg, rgba(27, 36, 82, 0.72), rgba(16, 22, 52, 0.8));
+    --card-ring-a: rgba(59, 130, 246, 0.7);
+    --card-ring-b: rgba(236, 72, 153, 0.6);
+    --card-ring-fallback: inset 0 0 0 1px rgba(99, 102, 241, 0.4);
+    --outline-fallback: rgba(129, 140, 248, 0.7);
+    --outline-fill-solid: #0f1633;
+    --outline-fill-glass: rgba(15, 22, 51, 0.55);
+    --bar-fill-top-solid: rgba(20, 27, 61, 0.97);
+    --bar-fill-bottom-solid: rgba(11, 18, 41, 0.95);
+    --bar-fill-top-glass: rgba(20, 27, 61, 0.76);
+    --bar-fill-bottom-glass: rgba(11, 18, 41, 0.66);
+    --bar-edge: rgba(96, 165, 250, 0.12);
+    --bar-depth: 0 14px 34px -18px rgba(0, 0, 0, 0.75);
+    --pill-fill: rgba(255, 255, 255, 0.06);
+    --pill-edge: rgba(255, 255, 255, 0.08);
+    --field-fill: linear-gradient(180deg, rgba(8, 13, 31, 0.7), rgba(15, 22, 51, 0.8));
+    --field-edge: rgba(59, 130, 246, 0.25);
+    --field-edge-hover: rgba(96, 165, 250, 0.45);
+    --field-inset: rgba(0, 0, 0, 0.4);
+    --field-lip: rgba(255, 255, 255, 0.04);
+    --chip-sheen: rgba(255, 255, 255, 0.12);
+    --focus-ring: #93c5fd;
   }
 }
 
@@ -86,69 +154,351 @@ body {
     background: linear-gradient(110deg, #0f1633 0%, #141b3d 55%, #2a1a3f 100%);
   }
 
-  /* Card with a thin blue → pink border and a soft glow on hover */
+  /*
+   * Gloss system. One light source, top-left. Every glossy surface is lit the same way:
+   * a bright inner rim on top, a darker rim below, a sheen that fades out by ~45% of
+   * the height, navy-tinted depth shadows, and a specular highlight that follows the
+   * pointer (--gx / --gy are set by useGlossPointer). Translucency only switches on
+   * where backdrop-filter is supported; otherwise surfaces stay opaque.
+   */
+
+  /* Card: frosted panel with a blue → pink rim */
   .card {
-    border: 1px solid transparent;
+    position: relative;
+    isolation: isolate;
+    border: 0;
+    background: var(--gloss-sheen), var(--card-fill-solid);
+    box-shadow:
+      inset 0 1px 0 var(--gloss-rim-hi),
+      inset 0 -1px 0 var(--gloss-rim-lo),
+      var(--card-ring-fallback),
+      var(--gloss-depth);
+    transition: box-shadow 0.35s ease;
+  }
+
+  /* Gradient rim, drawn with a mask so the fill can stay translucent */
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    padding: 1px;
+    border-radius: inherit;
     background:
-      linear-gradient(#ffffff, #ffffff) padding-box,
-      linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(236, 72, 153, 0.35)) border-box;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+      linear-gradient(180deg, var(--gloss-rim-spec), transparent 35%),
+      linear-gradient(135deg, var(--card-ring-a), var(--card-ring-b));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    opacity: 0.7;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
   }
 
-  .dark .card {
-    background:
-      linear-gradient(160deg, rgba(25, 34, 78, 0.95), rgba(16, 22, 52, 0.95)) padding-box,
-      linear-gradient(135deg, rgba(59, 130, 246, 0.55), rgba(236, 72, 153, 0.55)) border-box;
+  /* Specular highlight, painted between the fill and the content */
+  .card::after,
+  .btn-gradient::after,
+  .btn-outline::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: radial-gradient(
+      var(--spec-size, 20rem) circle at var(--gx, 50%) var(--gy, -30%),
+      var(--gloss-spec),
+      transparent 55%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
   }
 
-  .card:hover {
-    box-shadow: 0 0 28px rgba(59, 130, 246, 0.22), 0 0 48px rgba(236, 72, 153, 0.14);
+  .card:hover,
+  .card:focus-visible,
+  .card:focus-within {
+    box-shadow:
+      inset 0 1px 0 var(--gloss-rim-hi),
+      inset 0 -1px 0 var(--gloss-rim-lo),
+      var(--card-ring-fallback),
+      var(--gloss-depth-hover);
   }
 
-  /* Gradient pill button */
+  .card:hover::before,
+  .card:focus-visible::before,
+  .card:focus-within::before,
+  .card:hover::after,
+  .card:focus-visible::after,
+  .card:focus-within::after {
+    opacity: 1;
+  }
+
+  /* Gradient pill button: lacquered, with a light streak that sweeps across on hover */
   .btn-gradient {
-    @apply text-white font-semibold rounded-full transition-all duration-300;
-    background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #f43f5e 100%);
-    background-size: 200% 100%;
-    box-shadow: 0 8px 24px -8px rgba(59, 130, 246, 0.6);
+    @apply text-white font-semibold rounded-full;
+    --spec-size: 9rem;
+    --gloss-spec: rgba(255, 255, 255, 0.35);
+    position: relative;
+    isolation: isolate;
+    background-image:
+      linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.4) 50%, transparent 60%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.08) 46%, rgba(255, 255, 255, 0) 56%, rgba(15, 22, 51, 0.08) 100%),
+      linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #f43f5e 100%);
+    background-size: 250% 100%, 100% 100%, 200% 100%;
+    background-position: 100% 0, 0 0, 0 0;
+    background-repeat: no-repeat;
+    text-shadow: 0 1px 1px rgba(15, 22, 51, 0.28);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.45),
+      inset 0 -1px 0 rgba(15, 22, 51, 0.25),
+      0 1px 2px rgba(30, 58, 138, 0.25),
+      0 8px 24px -8px rgba(59, 130, 246, 0.6);
+    transition:
+      background-position 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 0.3s ease,
+      transform 0.3s ease;
   }
 
-  .btn-gradient:hover {
-    background-position: 100% 0;
-    box-shadow: 0 10px 30px -6px rgba(236, 72, 153, 0.55);
+  .btn-gradient:hover,
+  .btn-gradient:focus-visible {
+    background-position: 0 0, 0 0, 100% 0;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -1px 0 rgba(15, 22, 51, 0.25),
+      0 1px 2px rgba(30, 58, 138, 0.25),
+      0 12px 32px -8px rgba(236, 72, 153, 0.55);
   }
 
-  /* Outlined pill with a gradient border */
+  .btn-gradient:active {
+    box-shadow:
+      inset 0 2px 6px rgba(15, 22, 51, 0.3),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.15),
+      0 4px 12px -6px rgba(59, 130, 246, 0.6);
+  }
+
+  /* Outlined pill: clear glass with the gradient rim */
   .btn-outline {
-    @apply font-semibold rounded-full transition-all duration-300 text-primary-600 dark:text-white;
-    border: 1.5px solid transparent;
+    @apply font-semibold rounded-full text-primary-600 dark:text-white;
+    --spec-size: 9rem;
+    position: relative;
+    isolation: isolate;
+    border: 1.5px solid var(--outline-fallback);
+    background-image:
+      linear-gradient(105deg, transparent 40%, var(--gloss-streak) 50%, transparent 60%),
+      var(--gloss-sheen);
+    background-color: var(--outline-fill-solid);
+    background-size: 250% 100%, 100% 100%;
+    background-position: 100% 0, 0 0;
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    box-shadow:
+      inset 0 1px 0 var(--gloss-rim-hi),
+      inset 0 -1px 0 var(--gloss-rim-lo),
+      var(--gloss-depth-sm);
+    transition:
+      background-position 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .btn-outline::before {
+    content: "";
+    position: absolute;
+    inset: -1.5px;
+    z-index: 1;
+    padding: 1.5px;
+    border-radius: inherit;
     background:
-      linear-gradient(#ffffff, #ffffff) padding-box,
-      linear-gradient(90deg, #3b82f6, #f43f5e) border-box;
+      linear-gradient(180deg, var(--gloss-rim-spec), transparent 45%),
+      linear-gradient(90deg, #3b82f6, #f43f5e);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    pointer-events: none;
   }
 
-  .dark .btn-outline {
-    background:
-      linear-gradient(#0f1633, #0f1633) padding-box,
-      linear-gradient(90deg, #3b82f6, #f43f5e) border-box;
+  .btn-outline:hover,
+  .btn-outline:focus-visible {
+    background-position: 0 0, 0 0;
+    box-shadow:
+      inset 0 1px 0 var(--gloss-rim-hi),
+      inset 0 -1px 0 var(--gloss-rim-lo),
+      0 0 22px rgba(59, 130, 246, 0.35),
+      var(--gloss-depth-sm);
   }
 
-  .btn-outline:hover {
-    box-shadow: 0 0 22px rgba(59, 130, 246, 0.35);
+  .btn-outline:active {
+    box-shadow:
+      inset 0 2px 5px var(--gloss-rim-lo),
+      0 0 14px rgba(59, 130, 246, 0.3);
   }
 
-  /* Pill-shaped form fields */
+  .btn-gradient:hover::after,
+  .btn-gradient:focus-visible::after,
+  .btn-outline:hover::after,
+  .btn-outline:focus-visible::after {
+    opacity: 1;
+  }
+
+  /*
+   * Gloss layer for small surfaces that keep their own colours (pills, badges, icon buttons).
+   * The rims ride on --tw-ring-offset-shadow, so a Tailwind shadow-* utility on the same
+   * element composes with them instead of replacing them.
+   */
+  .gloss {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 55%);
+    --tw-ring-offset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(15, 22, 51, 0.12);
+    --tw-shadow: var(--gloss-depth-sm);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  /* Sheen for gradient fills that already use background-image (progress bars) */
+  .gloss-fill {
+    position: relative;
+  }
+
+  .gloss-fill::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 60%);
+    box-shadow: inset 0 -1px 0 rgba(15, 22, 51, 0.15);
+    pointer-events: none;
+  }
+
+  /* Frosted bar: navbar once scrolled, mobile menu, modal headers */
+  .glass-bar {
+    background: linear-gradient(180deg, var(--bar-fill-top-solid), var(--bar-fill-bottom-solid));
+    border-bottom: 1px solid var(--bar-edge);
+    box-shadow:
+      inset 0 1px 0 var(--gloss-rim-hi),
+      var(--bar-depth);
+  }
+
+  .glass-bar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.55) 30%, rgba(236, 72, 153, 0.45) 70%, transparent);
+    pointer-events: none;
+  }
+
+  /* Nav links and icon toggles: bare at rest, a glass pill on hover and focus */
+  .nav-pill {
+    transition: color 0.2s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .nav-pill:hover,
+  .nav-pill:focus-visible {
+    background-color: var(--pill-fill);
+    box-shadow:
+      inset 0 12px 14px -12px var(--gloss-rim-hi),
+      inset 0 0 0 1px var(--pill-edge),
+      inset 0 -1px 0 var(--gloss-rim-lo);
+  }
+
+  /* Pill-shaped form fields: recessed glass */
   .field {
-    @apply w-full px-5 py-3.5 rounded-full bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all;
+    @apply w-full px-5 py-3.5 rounded-full border text-gray-900 placeholder-gray-400 focus:outline-none;
+    border-color: var(--field-edge);
+    background: var(--field-fill);
+    box-shadow:
+      inset 0 1px 2px var(--field-inset),
+      inset 0 -1px 0 var(--gloss-rim-hi),
+      0 1px 0 var(--field-lip);
+    transition: border-color 0.2s ease, box-shadow 0.25s ease;
+  }
+
+  .field:hover {
+    border-color: var(--field-edge-hover);
+  }
+
+  .field:focus {
+    border-color: #3b82f6;
+    box-shadow:
+      inset 0 1px 2px var(--field-inset),
+      0 0 0 3px rgba(59, 130, 246, 0.2),
+      0 8px 22px -10px rgba(59, 130, 246, 0.55);
   }
 
   .dark .field {
-    @apply bg-navy-800/80 border-primary-500/25 text-white placeholder-gray-500;
+    @apply text-white placeholder-gray-500;
   }
 
   /* Small icon chip used in cards */
   .icon-chip {
     @apply flex items-center justify-center rounded-xl text-primary-500 dark:text-primary-400 bg-primary-50 dark:bg-primary-500/10 border border-primary-100 dark:border-primary-500/25 transition-all duration-300;
+    background-image: linear-gradient(180deg, var(--chip-sheen), rgba(255, 255, 255, 0) 60%);
+    box-shadow:
+      inset 0 1px 0 var(--gloss-rim-hi),
+      inset 0 -1px 0 var(--gloss-rim-lo),
+      var(--gloss-depth-sm);
+  }
+
+  /* Visible keyboard focus on every glossy control */
+  .card:focus-visible,
+  .btn-gradient:focus-visible,
+  .btn-outline:focus-visible,
+  .nav-pill:focus-visible,
+  .icon-chip:focus-visible,
+  .gloss:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+
+  /* Translucency where the browser can blur what's behind */
+  /* autoprefixer: ignore next */
+  @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .card {
+      background: var(--gloss-sheen), var(--card-fill-glass);
+      -webkit-backdrop-filter: blur(16px) saturate(150%);
+      backdrop-filter: blur(16px) saturate(150%);
+    }
+
+    .btn-outline {
+      background-color: var(--outline-fill-glass);
+      -webkit-backdrop-filter: blur(10px) saturate(150%);
+      backdrop-filter: blur(10px) saturate(150%);
+    }
+
+    .glass-bar {
+      background: linear-gradient(180deg, var(--bar-fill-top-glass), var(--bar-fill-bottom-glass));
+      -webkit-backdrop-filter: blur(20px) saturate(170%);
+      backdrop-filter: blur(20px) saturate(170%);
+    }
+  }
+
+  /* Gradient rims need mask compositing; without it, fall back to a flat 1px rim */
+  @supports ((mask-composite: exclude) or (-webkit-mask-composite: xor)) {
+    :root,
+    .dark {
+      --card-ring-fallback: 0 0 #0000;
+      --outline-fallback: transparent;
+    }
+  }
+
+  @supports not ((mask-composite: exclude) or (-webkit-mask-composite: xor)) {
+    .card::before,
+    .btn-outline::before {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-gradient,
+    .btn-outline {
+      transition-property: box-shadow, background-color;
+    }
+
+    .card::after,
+    .btn-gradient::after,
+    .btn-outline::after {
+      transition: none;
+    }
   }
 
   /* Section headings */

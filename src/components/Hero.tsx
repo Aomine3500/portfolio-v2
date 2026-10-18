@@ -177,7 +177,7 @@ const Hero: React.FC<HeroProps> = ({ data, ui }) => {
                   key={i}
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay }}
-                  className={`absolute ${className} w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center bg-white dark:bg-navy-800 border border-primary-500/40 text-primary-500 dark:text-primary-400 shadow-lg shadow-primary-500/30`}
+                  className={`absolute ${className} w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center gloss bg-white dark:bg-navy-800 border border-primary-500/40 text-primary-500 dark:text-primary-400 shadow-lg shadow-primary-500/30`}
                 >
                   <Icon size={20} />
                 </motion.div>

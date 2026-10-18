@@ -99,7 +99,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                 animate={{ opacity: 1, scale: 1, x: 0 }}
                 exit={{ opacity: 0, scale: 0.9, x: -20 }}
                 transition={{ duration: 0.4 }}
-                className="group rounded-2xl card overflow-hidden transition-all duration-500 flex flex-col cursor-pointer flex-shrink-0 snap-center w-[82vw] sm:w-[350px] md:w-[420px] h-[520px] shadow-sm hover:shadow-xl dark:shadow-none"
+                className="group rounded-2xl card overflow-hidden transition-all duration-500 flex flex-col cursor-pointer flex-shrink-0 snap-center w-[82vw] sm:w-[350px] md:w-[420px] h-[520px]"
                 onClick={() => {
                   if (project.title === 'Gaztrack Pro') setSelectedProject('Gaztrack Pro');
                   if (project.title === 'Mind Screen') setSelectedProject('Mind Screen');
@@ -120,7 +120,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                       {/* Type badge */}
                       <div className="absolute top-4 right-4 flex gap-1.5">
                         {(project.types ?? [project.type]).map((t) => (
-                          <span key={t} className="px-3 py-1 rounded-full text-xs font-bold text-white bg-primary-500/90">{t}</span>
+                          <span key={t} className="gloss px-3 py-1 rounded-full text-xs font-bold text-white bg-primary-500/90">{t}</span>
                         ))}
                       </div>
                       {/* In Development badge */}
@@ -212,7 +212,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                             </a>
                           )}
                           {project.sourceUrl && (
-                            <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex-1 bg-white/10 backdrop-blur-md text-white py-2.5 rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/20 transition-colors border border-white/20" onClick={(e) => e.stopPropagation()}>
+                            <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer" className="gloss flex-1 bg-white/10 backdrop-blur-md text-white py-2.5 rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/20 transition-colors border border-white/20" onClick={(e) => e.stopPropagation()}>
                               <Github size={16} />
                               {ui.sourceBtn}
                             </a>
@@ -225,7 +225,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, ui, language, onRequestDe
                         {(project.types ?? [project.type]).map((t) => (
                           <span
                             key={t}
-                            className={`px-3 py-1 rounded-full text-xs font-bold text-white ${
+                            className={`gloss px-3 py-1 rounded-full text-xs font-bold text-white ${
                               t.toLowerCase() === 'web'
                                 ? 'bg-indigo-500/90'
                                 : 'bg-primary-500/90'

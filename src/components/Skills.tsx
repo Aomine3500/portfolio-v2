@@ -53,7 +53,7 @@ const Skills: React.FC<SkillsProps> = ({ categories, ui }) => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={ui.searchPlaceholder}
-            className="w-full pl-12 pr-4 py-4 bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-2xl focus:outline-none focus:border-primary-500 transition-all text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:ring-2 focus:ring-primary-500/20"
+            className="field !rounded-2xl pl-12 pr-4 py-4"
           />
         </div>
 
@@ -100,7 +100,7 @@ const Skills: React.FC<SkillsProps> = ({ categories, ui }) => {
                                 whileInView={{ width: `${skill.level}%` }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 1.2, delay: skillIndex * 0.05, ease: "easeOut" }}
-                                className="h-full rounded-full bg-gradient-to-r from-primary-500 via-violet-500 to-accent-500"
+                                className="gloss-fill h-full rounded-full bg-gradient-to-r from-primary-500 via-violet-500 to-accent-500"
                               />
                             </div>
                           </motion.div>
