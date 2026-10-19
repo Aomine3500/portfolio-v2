@@ -3,6 +3,9 @@ import { GraduationCap, MapPin, Calendar, Award, BadgeCheck, ExternalLink, Spark
 import { Certification, Education, UIContent } from '../types';
 import { motion } from 'framer-motion';
 
+// Hidden until the AI courses are finished; flip to true to show the block again.
+const SHOW_CERTIFICATIONS = false;
+
 interface EducationProps {
   education: Education[];
   certifications: Certification[];
@@ -58,7 +61,7 @@ const EducationComponent: React.FC<EducationProps> = ({ education, certification
           )}
 
           {/* AI & continuous learning certificates */}
-          {certifications.length > 0 && (
+          {SHOW_CERTIFICATIONS && certifications.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
