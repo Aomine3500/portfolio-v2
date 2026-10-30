@@ -18,7 +18,7 @@ export const content: { en: AppContent; fr: AppContent } = {
     personalInfo: {
       name: "Ahmed Znouda",
       title: "AI Automation & Full-Stack Developer",
-      about: "With 8+ years of IT experience, I specialize in building scalable software and intelligent automation systems. My expertise spans full-stack development (Flutter, MERN) and AI-driven automation using n8n and LLMs — enabling businesses to replace manual processes with smart, data-driven workflows. I don't just build apps; I architect systems that think.",
+      about: "With 9 years of IT experience, I specialize in building scalable software and intelligent automation systems. My expertise spans full-stack development (Flutter, MERN) and AI-driven automation using n8n and LLMs — enabling businesses to replace manual processes with smart, data-driven workflows. I don't just build apps; I architect systems that think.",
       heroImage: PROFILE_IMAGE_URL,
     },
     contactInfo: {
@@ -379,7 +379,7 @@ export const content: { en: AppContent; fr: AppContent } = {
     personalInfo: {
       name: "Ahmed Znouda",
       title: "Développeur IA & Full-Stack",
-      about: "Avec 8+ ans d'expérience IT, je me spécialise dans la création de logiciels scalables et de systèmes d'automatisation intelligents. Mon expertise couvre le développement full-stack (Flutter, MERN) et l'automatisation pilotée par l'IA via n8n et les LLMs — permettant aux entreprises de remplacer les processus manuels par des workflows intelligents orientés données. Je ne construis pas seulement des applications ; j'architectorise des systèmes qui pensent.",
+      about: "Avec 9 ans d'expérience IT, je me spécialise dans la création de logiciels scalables et de systèmes d'automatisation intelligents. Mon expertise couvre le développement full-stack (Flutter, MERN) et l'automatisation pilotée par l'IA via n8n et les LLMs — permettant aux entreprises de remplacer les processus manuels par des workflows intelligents orientés données. Je ne construis pas seulement des applications ; j'architectorise des systèmes qui pensent.",
       heroImage: PROFILE_IMAGE_URL,
     },
     contactInfo: {
