@@ -257,6 +257,7 @@ export const content: { en: AppContent; fr: AppContent } = {
         headline: "Scalable Software & Intelligent Automation for the Modern Enterprise.",
         contactBtn: "Book Your Free Solution Audit",
         downloadBtn: "Download CV",
+        cvMenuTitle: "Choose a language",
         scroll: "Scroll",
         roles: ["AI Automation Expert", "Flutter Developer", "MERN Stack Expert", "Software Engineer"]
       },
@@ -618,6 +619,7 @@ export const content: { en: AppContent; fr: AppContent } = {
         headline: "Logiciels Scalables & Automatisation Intelligente pour l'Entreprise Moderne.",
         contactBtn: "Réserver Votre Audit Solution Gratuit",
         downloadBtn: "Télécharger CV",
+        cvMenuTitle: "Choisissez la langue",
         scroll: "Défiler",
         roles: ["Expert en Automatisation IA", "Développeur Flutter", "Expert MERN Stack", "Ingénieur Logiciel"]
       },

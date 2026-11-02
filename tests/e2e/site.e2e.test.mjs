@@ -414,13 +414,20 @@ describe('contact form (validation paths only - never sends a real email)', () =
 });
 
 describe('Hero', () => {
-  test('"Download CV" link points to a file that is actually served (not the SPA html)', async () => {
+  test('"Download CV" opens a language menu whose EN and FR links serve real PDFs', async () => {
     await load(URL_, { clearStorage: true });
-    const href = await ev(`document.querySelector('a[download]')?.getAttribute('href')`);
-    assert.ok(href, 'no download link');
-    const res = await fetch(new URL(href, URL_));
-    const type = res.headers.get('content-type') || '';
-    assert.ok(res.ok && /pdf/i.test(type), `GET ${href} -> ${res.status} ${type} (expected application/pdf)`);
+    assert.equal(await ev(`document.querySelectorAll('#home a[download]').length`), 0, 'menu should start closed');
+    await ev(`document.querySelector('#home [aria-haspopup="menu"]').click()`);
+    await waitFor(`document.querySelectorAll('#cv-download-menu a[download]').length === 2`, 3000, 'CV menu open');
+    const hrefs = await ev(`[...document.querySelectorAll('#cv-download-menu a[download]')].map(a => a.getAttribute('href'))`);
+    assert.ok(hrefs.some((h) => /_EN\.pdf$/.test(h)) && hrefs.some((h) => /_FR\.pdf$/.test(h)), hrefs.join(', '));
+    for (const href of hrefs) {
+      const res = await fetch(new URL(href, URL_));
+      const type = res.headers.get('content-type') || '';
+      assert.ok(res.ok && /pdf/i.test(type), `GET ${href} -> ${res.status} ${type} (expected application/pdf)`);
+    }
+    await ev(`document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))`);
+    await waitFor(`!document.querySelector('#cv-download-menu')`, 3000, 'CV menu closed on Escape');
   });
 
   test('profile image loads', async () => {

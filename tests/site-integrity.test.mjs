@@ -206,12 +206,11 @@ describe('static assets referenced by the site exist in /public', () => {
     assert.deepEqual(missing, []);
   });
 
-  // KNOWN BUG (code/asset): the file was never committed -> Download CV button 404s.
-  test('CV file referenced by the Hero "Download CV" button exists', () => {
-    const hero = read(path.join(SRC, 'components', 'Hero.tsx'));
-    const href = hero.match(/href="(\/[^"]+\.pdf)"/)?.[1];
-    assert.ok(href, 'no .pdf link found in Hero.tsx');
-    assert.ok(existsPublic(href), `${href} is missing from /public`);
+  test('CV files offered by the "Download CV" menu exist (EN + FR)', () => {
+    const menu = read(path.join(SRC, 'components', 'CvDownloadMenu.tsx'));
+    const hrefs = [...menu.matchAll(/href: '(\/[^']+\.pdf)'/g)].map((m) => m[1]);
+    assert.equal(hrefs.length, 2, 'expected one EN and one FR CV in CvDownloadMenu.tsx');
+    for (const href of hrefs) assert.ok(existsPublic(href), `${href} is missing from /public`);
   });
 
   // KNOWN BUG (minor): index.html favicon points to Vite's default which is not shipped.

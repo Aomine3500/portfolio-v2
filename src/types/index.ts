@@ -71,6 +71,7 @@ export interface UIContent {
     headline: string;
     contactBtn: string;
     downloadBtn: string;
+    cvMenuTitle: string;
     scroll: string;
     roles: string[];
   };

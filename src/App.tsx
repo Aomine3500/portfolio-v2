@@ -46,7 +46,7 @@ const AppContent: React.FC = () => {
     <div className="min-h-screen bg-slate-50 dark:bg-navy-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
       <Navbar language={language} setLanguage={setLanguage} ui={data.ui} />
       <main>
-        <Hero data={data.personalInfo} ui={data.ui.hero} />
+        <Hero data={data.personalInfo} ui={data.ui.hero} language={language} />
         <About data={data.personalInfo} ui={data.ui.about} />
         <Experience experiences={data.experiences} ui={data.ui.experience} />
         <Skills categories={data.skillCategories} ui={data.ui.skills} />

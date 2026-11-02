@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Download, MessageCircle, Github, Linkedin, Facebook, Share2, Code2, Smartphone, Database, Bot } from 'lucide-react';
+import { MessageCircle, Github, Linkedin, Facebook, Share2, Code2, Smartphone, Database, Bot } from 'lucide-react';
 import { AppContent, UIContent } from '../types';
 import { motion } from 'framer-motion';
+import { Language } from '../App';
 import XIcon from './XIcon';
+import CvDownloadMenu from './CvDownloadMenu';
 
 interface HeroProps {
   data: AppContent['personalInfo'];
   ui: UIContent['hero'];
+  language: Language;
 }
 
-const Hero: React.FC<HeroProps> = ({ data, ui }) => {
+const Hero: React.FC<HeroProps> = ({ data, ui, language }) => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -110,16 +113,13 @@ const Hero: React.FC<HeroProps> = ({ data, ui }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-center gap-4 mb-10 justify-center lg:justify-start"
+              className="relative z-20 flex flex-col sm:flex-row items-center gap-4 mb-10 justify-center lg:justify-start"
             >
               <a href="#contact" className="btn-gradient px-7 py-3 flex items-center gap-2">
                 <MessageCircle size={18} />
                 {ui.contactBtn}
               </a>
-              <a href="/Ahmed_Znouda_CV.pdf" download className="btn-outline px-7 py-3 flex items-center gap-2">
-                <Download size={18} />
-                {ui.downloadBtn}
-              </a>
+              <CvDownloadMenu label={ui.downloadBtn} menuTitle={ui.cvMenuTitle} language={language} />
             </motion.div>
 
             {/* Social Icons */}
