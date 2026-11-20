@@ -406,7 +406,7 @@ Toutes les structures de données sont typées dans `src/types/index.ts` :
 *IT Engineer — AI Automation | Full-Stack Development | Legacy Systems*
 
 📍 Tunisie
-📧 [ahmed.znouda2025@gmail.com](mailto:ahmed.znouda@gmail.com)
+📧 [ahmed.znouda@gmail.com](mailto:ahmed.znouda@gmail.com)
 🔗 [LinkedIn](https://www.linkedin.com/in/ahmedznouda)
 🐙 [GitHub](https://github.com/Aomine3500)
 
