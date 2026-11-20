@@ -402,13 +402,13 @@ Toutes les structures de données sont typées dans `src/types/index.ts` :
 
 ## 👤 Auteur
 
-**Abdelhamid Znouda**
+**Ahmed Znouda**
 *IT Engineer — AI Automation | Full-Stack Development | Legacy Systems*
 
 📍 Tunisie
-📧 [abdelhamidznouda2025@gmail.com](mailto:abdelhamidznouda2025@gmail.com)
-🔗 [LinkedIn](https://www.linkedin.com/in/abdelhamid-znouda)
-🐙 [GitHub](https://github.com/abdelhamid-znouda)
+📧 [ahmed.znouda2025@gmail.com](mailto:ahmed.znouda@gmail.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/ahmedznouda)
+🐙 [GitHub](https://github.com/Aomine3500)
 
 ---
 
